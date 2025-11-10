@@ -1,0 +1,27 @@
+# Note: no "version:" key (Compose v2 ignores it)
+services:
+  # Build the app image once so the healer can run containers from it
+  app:
+    build: ./app
+    image: autoheal-demo
+    # profiles: ["build-only"] 
+
+  healer:
+    build: ./healer
+    container_name: autoheal_healer
+    working_dir: /project
+    command: ["python", "healer/healer.py"]
+    environment:
+      APP_IMAGE: autoheal-demo:latest
+      HANG_TIMEOUT: "8"
+      SLA_SEC: "20"
+      # Absolute host path to your data folder (see Step 3)
+      DATA_HOST_PATH: "E:/Advance_Master's_Project/My_AutoHeal/data"
+    volumes:
+      # Mount the same host data folder inside the healer container
+      - E:/Advance_Master's_Project/My_AutoHeal/data:/data
+      # Mount your project so results.csv appears on your host
+      - ./:/project
+      # Give healer access to the Docker daemon
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: "no"
