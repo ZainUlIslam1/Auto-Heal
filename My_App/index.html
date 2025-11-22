@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            padding: 24px 32px;
+            border-radius: 8px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+            width: 320px;
+        }
+        h1 {
+            margin-top: 0;
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-top: 12px;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 16px;
+            cursor: pointer;
+        }
+        .error {
+            color: red;
+            margin-top: 8px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Login</h1>
+
+    <label for="username">Username</label>
+    <input id="username" type="text"  />
+
+    <label for="password">Password</label>
+    <input id="password" type="password" />
+
+    <button id="login_Btn" type="button">Login</button>
+
+    <div id="errorMessage" class="error">Invalid username or password.</div>
+</div>
+
+<script>
+    // hard-coded demo credentials
+    const VALID_USERNAME = "test.user";
+    const VALID_PASSWORD = "Password123";
+
+    const usernameInput = document.getElementById("username");
+    const passwordInput = document.getElementById("password");
+    const loginButton = document.getElementById("login_Btn");
+    const errorMessage = document.getElementById("errorMessage");
+
+    loginButton.addEventListener("click", function () {
+        const user = usernameInput.value;
+        const pass = passwordInput.value;
+
+        if (user === VALID_USERNAME && pass === VALID_PASSWORD) {
+            // redirect to home page on success
+            window.location.href = "home.html";
+        } else {
+            errorMessage.style.display = "block";
+        }
+    });
+</script>
+</body>
+</html>
