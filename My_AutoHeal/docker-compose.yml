@@ -16,10 +16,10 @@ services:
       HANG_TIMEOUT: "8"
       SLA_SEC: "20"
       # Absolute host path to your data folder (see Step 3)
-      DATA_HOST_PATH: "E:/Advance_Master's_Project/My_AutoHeal/data"
+      DATA_HOST_PATH: "E:/Advance_Masters_Project/My_AutoHeal/data"
     volumes:
       # Mount the same host data folder inside the healer container
-      - E:/Advance_Master's_Project/My_AutoHeal/data:/data
+      - E:/Advance_Masters_Project/My_AutoHeal/data:/data
       # Mount your project so results.csv appears on your host
       - ./:/project
       # Give healer access to the Docker daemon
