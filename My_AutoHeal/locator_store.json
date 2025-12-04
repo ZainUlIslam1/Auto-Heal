@@ -1,0 +1,16 @@
+{
+  "login_button": {
+    "by": "id",
+    "value": "login-btn",
+    "healed": false,
+    "heal_reason": null,
+    "last_success_ts": 1764843212.9462228
+  },
+  "username_field": {
+    "by": "id",
+    "value": "username",
+    "healed": false,
+    "heal_reason": null,
+    "last_success_ts": 1764843212.93206
+  }
+}

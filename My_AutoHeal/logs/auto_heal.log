@@ -1,0 +1,21 @@
+2025-12-03 23:42:08,279 [INFO] Navigating to file:///E:\Advance_Masters_Project\My_AutoHeal\index.html
+2025-12-03 23:42:08,458 [INFO] [login_button] Using initial locator: id=login-btn
+2025-12-03 23:42:08,620 [INFO] [username_field] Using initial locator: id=username
+2025-12-03 23:52:06,123 [INFO] Navigating to file:///E:\Advance_Masters_Project\My_AutoHeal\index.html
+2025-12-03 23:52:06,296 [INFO] [login_button] Using stored locator: id=login-btn
+2025-12-03 23:52:16,657 [WARNING] [login_button] Primary locator failed: id=login-btn (TimeoutException)
+2025-12-03 23:52:16,657 [INFO] [login_button] Healing attempt: css selector=#login-btn (ID->CSS by #id)
+2025-12-03 23:52:26,682 [INFO] [login_button] Healing attempt: xpath=//*[@id='login-btn'] (ID->XPath by @id)
+2025-12-03 23:52:28,844 [ERROR] [login_button] Could not heal locator.
+2025-12-04 09:57:06,128 [INFO] Navigating to file:///E:\Advance_Masters_Project\My_AutoHeal\index.html
+2025-12-04 09:57:06,296 [INFO] [login_button] Using stored locator: id=login-btn
+2025-12-04 10:11:22,925 [INFO] Navigating to file:///E:\Advance_Masters_Project\My_AutoHeal\index.html
+2025-12-04 10:11:23,122 [INFO] [login_button] Using stored locator: id=login-btn
+2025-12-04 10:11:33,340 [WARNING] [login_button] Primary locator failed: id=login-btn (TimeoutException)
+2025-12-04 10:11:33,340 [INFO] [login_button] Healing attempt: css selector=#login-btn (ID->CSS by #id)
+2025-12-04 10:11:43,384 [INFO] [login_button] Healing attempt: xpath=//*[@id='login-btn'] (ID->XPath by @id)
+2025-12-04 10:11:53,484 [ERROR] [login_button] Could not heal locator.
+2025-12-04 10:13:32,610 [INFO] Navigating to file:///E:\Advance_Masters_Project\My_AutoHeal\index.html
+2025-12-04 10:13:32,767 [INFO] [login_button] Using stored locator: id=login-btn
+2025-12-04 10:13:32,910 [INFO] [username_field] Using stored locator: id=username
+2025-12-04 10:13:32,932 [INFO] [login_button] Using stored locator: id=login-btn
