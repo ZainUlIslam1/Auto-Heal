@@ -1,10 +1,10 @@
 {
   "login_button": {
-    "by": "class name",
-    "value": "btn-primary",
+    "by": "id",
+    "value": "login-btn-p]rimary",
     "healed": true,
-    "heal_reason": "Fallback to Class='btn-primary'",
-    "last_success_ts": 1765423359.2576025,
+    "heal_reason": "Levenshtein (dist=1)",
+    "last_success_ts": 1765422953.2532918,
     "attributes": {
       "id": "login-btn-p]rimary",
       "class": "btn-primary",
@@ -18,7 +18,7 @@
     "value": "delete-alice-btn-primary",
     "healed": false,
     "heal_reason": null,
-    "last_success_ts": 1765423360.5645509,
+    "last_success_ts": 1765422954.7150989,
     "attributes": {
       "id": "delete-alice-btn-primary",
       "type": "submit",
@@ -31,7 +31,7 @@
     "value": "profile_email",
     "healed": false,
     "heal_reason": null,
-    "last_success_ts": 1765423360.9521077,
+    "last_success_ts": 1765422955.21037,
     "attributes": {
       "id": "profile_email",
       "name": "emai",
@@ -44,7 +44,7 @@
     "value": "btn_save_profile",
     "healed": false,
     "heal_reason": null,
-    "last_success_ts": 1765423361.2312696,
+    "last_success_ts": 1765422955.782527,
     "attributes": {
       "id": "btn_save_profile",
       "type": "button",
@@ -57,7 +57,7 @@
     "value": "//a[text()='Logout']",
     "healed": false,
     "heal_reason": null,
-    "last_success_ts": 1765423361.4446595,
+    "last_success_ts": 1765422956.111811,
     "attributes": {
       "id": "logout-link",
       "tag": "a",
@@ -69,7 +69,7 @@
     "value": "username",
     "healed": false,
     "heal_reason": null,
-    "last_success_ts": 1765423348.4454303,
+    "last_success_ts": 1765422942.662129,
     "attributes": {
       "id": "username",
       "name": "username",
@@ -78,17 +78,15 @@
     }
   },
   "fallback_login_btn": {
-    "by": "class name",
-    "value": "btn-primary",
-    "healed": true,
-    "heal_reason": "Fallback to Class='btn-primary'",
-    "last_success_ts": 1765423371.793439,
+    "by": "id",
+    "value": "wrong_memory_id_123",
+    "healed": false,
+    "heal_reason": null,
+    "last_success_ts": 1765422942.3596513,
     "attributes": {
-      "id": "login-btn-p]rimary",
       "class": "btn-primary",
-      "type": "submit",
-      "tag": "button",
-      "text": "Login"
+      "text": "Login",
+      "tag": "button"
     }
   }
 }

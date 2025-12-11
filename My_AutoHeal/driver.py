@@ -3,7 +3,7 @@ import logging
 import os
 import time
 from dataclasses import dataclass, asdict
-from typing import Dict, Optional, Tuple
+from typing import Dict, Optional, Tuple, Any
 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webdriver import WebDriver
@@ -14,6 +14,8 @@ from selenium.common.exceptions import (
 )
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.remote.webelement import WebElement
+
 
 
 os.makedirs("logs", exist_ok=True)
@@ -31,6 +33,7 @@ class LocatorInfo:
     healed: bool = False
     heal_reason: Optional[str] = None
     last_success_ts: Optional[float] = None
+    attributes: Optional[Dict[str, str]] = None
 
 
 @dataclass
@@ -130,7 +133,10 @@ class AutoHealingDriver:
 
         # If we have a stored locator for this logical element, prefer that
         stored = self.store.get(name)
+        using_memory_healing = False
         if stored:
+            if stored.by != by or stored.value != value:
+                using_memory_healing = True
             by, value = stored.by, stored.value
             logging.info(f"[{name}] Using stored locator: {by}={value}")
         else:
@@ -140,23 +146,30 @@ class AutoHealingDriver:
             element = WebDriverWait(self.driver, timeout).until(
                 EC.presence_of_element_located((by, value))
             )
-            self._on_success(name, by, value, healed=stored.healed if stored else False)
+            self._on_success(name, by, value, healed=stored.healed if stored else False, element=element)
+            
+            if using_memory_healing:
+                 logging.info(f"[{name}] healing successful")
+                 
             return element
 
         except (NoSuchElementException, TimeoutException, StaleElementReferenceException) as e:
             logging.warning(f"[{name}] Primary locator failed: {by}={value} ({e.__class__.__name__})")
             self.metrics.locators_failed += 1
 
+            self.metrics.locators_failed += 1
+            
             healed_locator = self._heal_locator(name, by, value, timeout)
+
             if healed_locator:
                 healed_by, healed_value, heal_reason = healed_locator
                 logging.info(f"[{name}] Healed locator: {healed_by}={healed_value} ({heal_reason})")
-                self._on_success(name, healed_by, healed_value, healed=True, heal_reason=heal_reason)
 
                 try:
                     element = WebDriverWait(self.driver, timeout).until(
                         EC.presence_of_element_located((healed_by, healed_value))
                     )
+                    self._on_success(name, healed_by, healed_value, healed=True, heal_reason=heal_reason, element=element)
                     return element
                 except Exception as e2:
                     logging.error(f"[{name}] Element not interactable even after healing: {e2}")
@@ -175,13 +188,33 @@ class AutoHealingDriver:
         value: str,
         healed: bool,
         heal_reason: Optional[str] = None,
+        element: Optional[WebElement] = None,
     ) -> None:
+        attributes = {}
+        if element:
+            try:
+                # Capture useful attributes for future healing
+                for attr in ["id", "name", "class", "type"]:
+                    val = element.get_attribute(attr)
+                    if val:
+                        attributes[attr] = str(val)
+                attributes["tag"] = element.tag_name
+                
+                # Capture text for non-inputs
+                if element.tag_name not in ["input", "select", "textarea"]:
+                    txt = element.text
+                    if txt:
+                        attributes["text"] = txt[:50] # Limit length
+            except Exception as e:
+                logging.warning(f"[{name}] Failed to capture attributes: {e}")
+
         info = LocatorInfo(
             by=by,
             value=value,
             healed=healed,
             heal_reason=heal_reason,
             last_success_ts=time.time(),
+            attributes=attributes if attributes else None
         )
         self.store.set(name, info)
 
@@ -201,6 +234,37 @@ class AutoHealingDriver:
             heal_attempts.append(
                 (stored.by, stored.value, "Reusing previous successful locator")
             )
+
+        # --- NEW: Attribute-based Fallbacks ---
+        if stored and stored.attributes:
+            attrs = stored.attributes
+            
+            # 1. ID Fallback (if stored ID differs from current failed one)
+            if "id" in attrs:
+                # Avoid trying the exact same ID if that's what failed
+                if not (by == By.ID and value == attrs["id"]): 
+                    heal_attempts.append((By.ID, attrs["id"], f"Fallback to ID='{attrs['id']}'"))
+            
+            # 2. Name Fallback
+            if "name" in attrs:
+                 heal_attempts.append((By.NAME, attrs["name"], f"Fallback to Name='{attrs['name']}'"))
+
+            # 3. Class Fallback
+            if "class" in attrs:
+                cls_val = attrs["class"].strip()
+                if cls_val:
+                    # Use the first class token for simplicity
+                    first_class = cls_val.split()[0]
+                    heal_attempts.append((By.CLASS_NAME, first_class, f"Fallback to Class='{first_class}'"))
+
+            # 4. Text Fallback
+            if "text" in attrs and "tag" in attrs:
+                txt = attrs["text"].strip()
+                if len(txt) > 3: # minimal validity
+                     heal_attempts.append(
+                        (By.XPATH, f"//*[contains(text(), '{txt}')]", f"Fallback to Text='{txt}...'")
+                     )
+        # --------------------------------------
 
         if by == By.ID:
             element_id = value
@@ -250,6 +314,7 @@ class AutoHealingDriver:
 
         return None
 
+
  
 
     def _check_http_like_errors(self) -> None:
@@ -286,9 +351,11 @@ class AutoHealingDriver:
             logging.error(f"Failed to save metrics: {e}")
 
     def quit(self) -> None:
-        
         self._save_metrics()
         self.driver.quit()
 
     def __getattr__(self, item):
         return getattr(self.driver, item)
+
+
+

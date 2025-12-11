@@ -1,0 +1,16 @@
+{
+  "username_field": {
+    "by": "id",
+    "value": "username",
+    "healed": false,
+    "heal_reason": null,
+    "last_success_ts": 1765164393.5932856
+  },
+  "password_field": {
+    "by": "id",
+    "value": "password",
+    "healed": false,
+    "heal_reason": null,
+    "last_success_ts": 1765164393.7190564
+  }
+}
