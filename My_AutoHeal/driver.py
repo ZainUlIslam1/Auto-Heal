@@ -100,12 +100,14 @@ class AutoHealingDriver:
         locator_store_path: str = "locator_store.json",
         metrics_path: str = "metrics.json",
         default_timeout: int = 10,
+        log_path: Optional[str] = None,
     ):
         self.driver = driver
         self.store = LocatorStore(locator_store_path)
         self.metrics_path = metrics_path
         self.default_timeout = default_timeout
         self.metrics = Metrics()
+        self.log_path = log_path
 
     def get(self, url: str) -> None:
         logging.info(f"Navigating to {url}")
@@ -157,7 +159,7 @@ class AutoHealingDriver:
             logging.warning(f"[{name}] Primary locator failed: {by}={value} ({e.__class__.__name__})")
             self.metrics.locators_failed += 1
 
-            self.metrics.locators_failed += 1
+            # (removed duplicate line self.metrics.locators_failed += 1)
             
             healed_locator = self._heal_locator(name, by, value, timeout)
 
@@ -226,6 +228,7 @@ class AutoHealingDriver:
         timeout: int,
     ) -> Optional[Tuple[str, str, str]]:
         
+        start_time = time.time()
         heal_attempts = []
         self.metrics.heals_attempted += 1
 
@@ -239,79 +242,63 @@ class AutoHealingDriver:
         if stored and stored.attributes:
             attrs = stored.attributes
             
-            # 1. ID Fallback (if stored ID differs from current failed one)
+            # 1. ID Fallback
             if "id" in attrs:
-                # Avoid trying the exact same ID if that's what failed
                 if not (by == By.ID and value == attrs["id"]): 
                     heal_attempts.append((By.ID, attrs["id"], f"Fallback to ID='{attrs['id']}'"))
             
             # 2. Name Fallback
             if "name" in attrs:
-                 heal_attempts.append((By.NAME, attrs["name"], f"Fallback to Name='{attrs['name']}'"))
-
+                 if not (by == By.NAME and value == attrs["name"]):
+                    heal_attempts.append((By.NAME, attrs["name"], f"Fallback to Name='{attrs['name']}'"))
+            
             # 3. Class Fallback
             if "class" in attrs:
-                cls_val = attrs["class"].strip()
-                if cls_val:
-                    # Use the first class token for simplicity
-                    first_class = cls_val.split()[0]
-                    heal_attempts.append((By.CLASS_NAME, first_class, f"Fallback to Class='{first_class}'"))
-
-            # 4. Text Fallback
+                heal_attempts.append((By.CLASS_NAME, attrs["class"], f"Fallback to Class='{attrs['class']}'"))
+                
+            # 4. Text Fallback (XPath)
             if "text" in attrs and "tag" in attrs:
-                txt = attrs["text"].strip()
-                if len(txt) > 3: # minimal validity
-                     heal_attempts.append(
-                        (By.XPATH, f"//*[contains(text(), '{txt}')]", f"Fallback to Text='{txt}...'")
-                     )
-        # --------------------------------------
+                xpath = f"//{attrs['tag']}[text()='{attrs['text']}']"
+                heal_attempts.append((By.XPATH, xpath, f"Fallback to Text='{attrs['text']}'"))
 
+        # --- Standard Rules (ID->CSS, ID->XPath) ---
         if by == By.ID:
-            element_id = value
-            heal_attempts.append((By.CSS_SELECTOR, f"#{element_id}", "ID->CSS by #id"))
-            heal_attempts.append((By.XPATH, f"//*[@id='{element_id}']", "ID->XPath by @id"))
-
-        
+            heal_attempts.append((By.CSS_SELECTOR, f"#{value}", "ID->CSS by #id"))
+            heal_attempts.append((By.XPATH, f"//*[@id='{value}']", "ID->XPath by @id"))
+        elif by == By.CLASS_NAME:
+            heal_attempts.append((By.CSS_SELECTOR, f".{value}", "Class->CSS"))
+            heal_attempts.append((By.XPATH, f"//*[@class='{value}']", "Class->XPath"))
+        elif by == By.NAME:
+            heal_attempts.append((By.CSS_SELECTOR, f"[name='{value}']", "Name->CSS"))
+            heal_attempts.append((By.XPATH, f"//*[@name='{value}']", "Name->XPath"))
         elif by == By.CSS_SELECTOR:
-            css = value
-            if "." in css and "#" not in css:
-                last_class = css.split(".")[-1]
-                heal_attempts.append(
-                    (
-                        By.XPATH,
-                        f"//*[contains(@class, '{last_class}')]",
-                        "CSS class->XPath contains(@class)",
-                    )
-                )
+            # Try to catch basic .class or #id issues manually if needed, 
+            # but usually CSS is robust. Let's adding a simple fallback for class only.
+            if "." in value and "#" not in value and " " not in value:
+                cls = value.replace(".", "")
+                heal_attempts.append((By.CLASS_NAME, cls, "CSS class->Class Name"))
 
-        
-        elif by == By.XPATH:
-            xpath = value
-            if "text()" in xpath and "'" in xpath:
-                try:
-                    text_piece = xpath.split("text()=")[1].split("'")[1]
-                    heal_attempts.append(
-                        (
-                            By.XPATH,
-                            f"//*[contains(normalize-space(text()), '{text_piece}')]",
-                            "XPath text()->contains(text())",
-                        )
-                    )
-                except Exception:
-                    pass
-
-
-        for heal_by, heal_value, reason in heal_attempts:
+        for h_by, h_value, reason in heal_attempts:
+            logging.info(f"[{name}] Healing attempt: {h_by}={h_value} ({reason})")
             try:
-                logging.info(f"[{name}] Healing attempt: {heal_by}={heal_value} ({reason})")
                 WebDriverWait(self.driver, timeout).until(
-                    EC.presence_of_element_located((heal_by, heal_value))
+                    EC.presence_of_element_located((h_by, h_value))
                 )
                 self.metrics.heals_successful += 1
-                return heal_by, heal_value, reason
+                logging.info(f"[{name}] healing successful")
+                
+                # Metrics: Performance Log
+                duration = time.time() - start_time
+                logging.info(f"[Performance] Method=Standard, Time={duration:.4f}s, Attempts={len(heal_attempts)}, Success=True")
+                
+                return h_by, h_value, reason
             except Exception:
                 continue
-
+        
+        # Metrics: Performance Log (Failed)
+        duration = time.time() - start_time
+        logging.info(f"[Performance] Method=Standard, Time={duration:.4f}s, Attempts={len(heal_attempts)}, Success=False")
+        
         return None
 
 
@@ -343,6 +330,36 @@ class AutoHealingDriver:
             if "ERROR" in level:
                 logging.error(f"JS error: {message}")
 
+    def _update_metrics_from_log(self) -> None:
+        if not self.log_path or not os.path.exists(self.log_path):
+            logging.warning("No log path specified or file not found. Metrics will not be updated from logs.")
+            return
+            
+        try:
+            with open(self.log_path, "r", encoding="utf-8") as f:
+                lines = f.readlines()
+                
+            self.metrics.locators_tried = 0
+            self.metrics.locators_failed = 0
+            self.metrics.heals_attempted = 0
+            self.metrics.heals_successful = 0
+            self.metrics.heals_failed = 0
+            
+            for line in lines:
+                if "Using initial locator" in line or "Using stored locator" in line:
+                    self.metrics.locators_tried += 1
+                if "Primary locator failed" in line:
+                    self.metrics.locators_failed += 1
+                if "Healing attempt" in line:
+                    self.metrics.heals_attempted += 1
+                if "healing successful" in line:
+                    self.metrics.heals_successful += 1
+                if "Could not heal locator" in line:
+                    self.metrics.heals_failed += 1
+                    
+        except Exception as e:
+            logging.error(f"Failed to update metrics from log: {e}")
+
     def _save_metrics(self) -> None:
         try:
             with open(self.metrics_path, "w", encoding="utf-8") as f:
@@ -351,6 +368,7 @@ class AutoHealingDriver:
             logging.error(f"Failed to save metrics: {e}")
 
     def quit(self) -> None:
+        self._update_metrics_from_log()
         self._save_metrics()
         self.driver.quit()
 

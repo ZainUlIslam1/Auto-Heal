@@ -1,7 +1,7 @@
 {
-  "locators_tried": 559,
-  "locators_failed": 54,
-  "heals_attempted": 54,
-  "heals_successful": 101,
-  "heals_failed": 15
+  "locators_tried": 355,
+  "locators_failed": 79,
+  "heals_attempted": 87,
+  "heals_successful": 181,
+  "heals_failed": 23
 }

@@ -743,3 +743,303 @@ Symbols not available. Dumping unresolved backtrace:
 2025-12-11 03:22:51,660 [WARNING] [fallback_login_btn] Primary locator failed: id=wrong_memory_id_123 (TimeoutException)
 2025-12-11 03:22:51,660 [INFO] [fallback_login_btn] Healing attempt: class name=btn-primary (Fallback to Class='btn-primary')
 2025-12-11 03:22:51,679 [INFO] [fallback_login_btn] Healed locator: class name=btn-primary (Fallback to Class='btn-primary')
+2025-12-11 14:36:56,651 [INFO] Navigating to file:///E:\Advance_Masters_Project\My_AutoHeal\index.html
+2025-12-11 14:36:56,792 [INFO] [username_field] Using initial locator: id=username
+2025-12-11 14:36:57,194 [INFO] [login_button] Using stored locator: id=login-btn-primary
+2025-12-11 14:37:07,281 [WARNING] [login_button] Primary locator failed: id=login-btn-primary (TimeoutException)
+2025-12-11 14:37:07,281 [INFO] [login_button] Healing attempt: class name=btn-primary (Fallback to Class='btn-primary')
+2025-12-11 14:37:07,305 [INFO] [login_button] Healed locator: class name=btn-primary (Fallback to Class='btn-primary')
+2025-12-11 14:37:08,550 [INFO] [delete_alice_btn] Using stored locator: id=delete-alice-btn-primary
+2025-12-11 14:37:08,702 [INFO] [delete_alice_btn] healing successful
+2025-12-11 14:37:08,801 [INFO] [profile_email_input] Using stored locator: id=profile_email
+2025-12-11 14:37:08,892 [INFO] [profile_email_input] healing successful
+2025-12-11 14:37:08,958 [INFO] [profile_email_input] Using stored locator: id=profile_email
+2025-12-11 14:37:09,030 [INFO] [profile_email_input] healing successful
+2025-12-11 14:37:09,186 [INFO] [save_profile_btn] Using stored locator: id=btn_save_profile
+2025-12-11 14:37:09,279 [INFO] [save_profile_btn] healing successful
+2025-12-11 14:37:09,386 [INFO] [logout_link] Using stored locator: xpath=//a[text()='Logout']
+2025-12-11 14:37:09,530 [INFO] [logout_link] healing successful
+2025-12-11 14:37:09,652 [INFO] [fallback_login_btn] Using stored locator: id=wrong_memory_id_123
+2025-12-11 14:37:19,668 [WARNING] [fallback_login_btn] Primary locator failed: id=wrong_memory_id_123 (TimeoutException)
+2025-12-11 14:37:19,668 [INFO] [fallback_login_btn] Healing attempt: class name=btn-primary (Fallback to Class='btn-primary')
+2025-12-11 14:37:19,691 [INFO] [fallback_login_btn] Healed locator: class name=btn-primary (Fallback to Class='btn-primary')
+2025-12-14 20:19:38,996 [INFO] Navigating to file:///e:\Advance_Masters_Project\My_AutoHeal\index.html
+2025-12-14 20:19:39,068 [INFO] [username_field] Using initial locator: id=username
+2025-12-14 20:19:39,244 [INFO] [login_button] Using stored locator: id=login-btn-primary
+2025-12-14 20:19:49,415 [WARNING] [login_button] Primary locator failed: id=login-btn-primary (TimeoutException)
+2025-12-14 20:19:49,415 [INFO] [login_button] Healing attempt: class name=btn-primary (Fallback to Class='btn-primary')
+2025-12-14 20:19:49,459 [INFO] [login_button] Healed locator: class name=btn-primary (Fallback to Class='btn-primary')
+2025-12-14 20:19:50,590 [INFO] [delete_alice_btn] Using stored locator: id=delete-alice-btn-primary
+2025-12-14 20:19:50,666 [INFO] [delete_alice_btn] healing successful
+2025-12-14 20:19:50,740 [INFO] [profile_email_input] Using stored locator: id=profile_email
+2025-12-14 20:19:50,822 [INFO] [profile_email_input] healing successful
+2025-12-14 20:19:50,877 [INFO] [profile_email_input] Using stored locator: id=profile_email
+2025-12-14 20:19:50,921 [INFO] [profile_email_input] healing successful
+2025-12-14 20:19:50,997 [INFO] [save_profile_btn] Using stored locator: id=btn_save_profile
+2025-12-14 20:19:51,073 [INFO] [save_profile_btn] healing successful
+2025-12-14 20:19:51,140 [INFO] [logout_link] Using stored locator: xpath=//a[text()='Logout']
+2025-12-14 20:19:51,202 [INFO] [logout_link] healing successful
+2025-12-14 20:19:51,299 [INFO] [fallback_login_btn] Using stored locator: id=wrong_memory_id_123
+2025-12-14 20:20:01,370 [WARNING] [fallback_login_btn] Primary locator failed: id=wrong_memory_id_123 (TimeoutException)
+2025-12-14 20:20:01,370 [INFO] [fallback_login_btn] Healing attempt: class name=btn-primary (Fallback to Class='btn-primary')
+2025-12-14 20:20:01,385 [INFO] [fallback_login_btn] Healed locator: class name=btn-primary (Fallback to Class='btn-primary')
+2025-12-14 20:29:19,698 [INFO] Navigating to file:///E:\Advance_Masters_Project\My_AutoHeal\index.html
+2025-12-14 20:29:19,770 [INFO] [username_field] Using initial locator: id=username
+2025-12-14 20:29:19,879 [INFO] [login_button] Using stored locator: id=login-btn-primary
+2025-12-14 20:29:29,911 [WARNING] [login_button] Primary locator failed: id=login-btn-primary (TimeoutException)
+2025-12-14 20:29:29,911 [INFO] [login_button] Healing attempt: class name=btn-primary (Fallback to Class='btn-primary')
+2025-12-14 20:29:29,926 [INFO] [login_button] Healed locator: class name=btn-primary (Fallback to Class='btn-primary')
+2025-12-14 20:29:31,051 [INFO] [delete_alice_btn] Using stored locator: id=delete-alice-btn-primary
+2025-12-14 20:29:31,124 [INFO] [delete_alice_btn] healing successful
+2025-12-14 20:29:31,182 [INFO] [profile_email_input] Using stored locator: id=profile_email
+2025-12-14 20:29:31,232 [INFO] [profile_email_input] healing successful
+2025-12-14 20:29:31,261 [INFO] [profile_email_input] Using stored locator: id=profile_email
+2025-12-14 20:29:31,299 [INFO] [profile_email_input] healing successful
+2025-12-14 20:29:31,358 [INFO] [save_profile_btn] Using stored locator: id=btn_save_profile
+2025-12-14 20:29:31,409 [INFO] [save_profile_btn] healing successful
+2025-12-14 20:29:31,475 [INFO] [logout_link] Using stored locator: xpath=//a[text()='Logout']
+2025-12-14 20:29:31,540 [INFO] [logout_link] healing successful
+2025-12-14 20:29:31,607 [INFO] [fallback_login_btn] Using stored locator: id=wrong_memory_id_123
+2025-12-14 20:29:42,132 [WARNING] [fallback_login_btn] Primary locator failed: id=wrong_memory_id_123 (TimeoutException)
+2025-12-14 20:29:42,132 [INFO] [fallback_login_btn] Healing attempt: class name=btn-primary (Fallback to Class='btn-primary')
+2025-12-14 20:29:42,145 [INFO] [fallback_login_btn] Healed locator: class name=btn-primary (Fallback to Class='btn-primary')
+2025-12-14 20:35:49,380 [INFO] Navigating to file:///E:\Advance_Masters_Project\My_AutoHeal\index.html
+2025-12-14 20:35:49,461 [INFO] [username_field] Using initial locator: id=username
+2025-12-14 20:35:49,587 [INFO] [login_button] Using stored locator: id=login-btn-primary
+2025-12-14 20:36:00,056 [WARNING] [login_button] Primary locator failed: id=login-btn-primary (TimeoutException)
+2025-12-14 20:36:00,056 [INFO] [login_button] Healing attempt: class name=btn-primary (Fallback to Class='btn-primary')
+2025-12-14 20:36:00,070 [INFO] [login_button] Healed locator: class name=btn-primary (Fallback to Class='btn-primary')
+2025-12-14 20:36:01,190 [INFO] [delete_alice_btn] Using stored locator: id=delete-alice-btn-primary
+2025-12-14 20:36:01,288 [INFO] [delete_alice_btn] healing successful
+2025-12-14 20:36:01,459 [INFO] [profile_email_input] Using stored locator: id=profile_email
+2025-12-14 20:36:01,520 [INFO] [profile_email_input] healing successful
+2025-12-14 20:36:01,563 [INFO] [profile_email_input] Using stored locator: id=profile_email
+2025-12-14 20:36:01,614 [INFO] [profile_email_input] healing successful
+2025-12-14 20:36:01,728 [INFO] [save_profile_btn] Using stored locator: id=btn_save_profile
+2025-12-14 20:36:01,802 [INFO] [save_profile_btn] healing successful
+2025-12-14 20:36:01,871 [INFO] [logout_link] Using stored locator: xpath=//a[text()='Logout']
+2025-12-14 20:36:01,922 [INFO] [logout_link] healing successful
+2025-12-14 20:36:02,009 [INFO] [fallback_login_btn] Using stored locator: id=wrong_memory_id_123
+2025-12-14 20:36:12,030 [WARNING] [fallback_login_btn] Primary locator failed: id=wrong_memory_id_123 (TimeoutException)
+2025-12-14 20:36:12,031 [INFO] [fallback_login_btn] Healing attempt: class name=btn-primary (Fallback to Class='btn-primary')
+2025-12-14 20:36:12,041 [INFO] [fallback_login_btn] Healed locator: class name=btn-primary (Fallback to Class='btn-primary')
+2025-12-14 20:37:04,388 [INFO] Navigating to file:///E:\Advance_Masters_Project\My_AutoHeal\index.html
+2025-12-14 20:37:04,485 [INFO] [username_field] Using initial locator: id=username
+2025-12-14 20:37:04,613 [INFO] [login_button] Using stored locator: id=login-btn-primary
+2025-12-14 20:37:15,053 [WARNING] [login_button] Primary locator failed: id=login-btn-primary (TimeoutException)
+2025-12-14 20:37:15,054 [INFO] [login_button] Healing attempt: class name=btn-primary (Fallback to Class='btn-primary')
+2025-12-14 20:37:15,064 [INFO] [login_button] Healed locator: class name=btn-primary (Fallback to Class='btn-primary')
+2025-12-14 20:37:16,198 [INFO] [delete_alice_btn] Using stored locator: id=delete-alice-btn-primary
+2025-12-14 20:37:16,285 [INFO] [delete_alice_btn] healing successful
+2025-12-14 20:37:16,360 [INFO] [profile_email_input] Using stored locator: id=profile_email
+2025-12-14 20:37:16,419 [INFO] [profile_email_input] healing successful
+2025-12-14 20:37:16,453 [INFO] [profile_email_input] Using stored locator: id=profile_email
+2025-12-14 20:37:16,496 [INFO] [profile_email_input] healing successful
+2025-12-14 20:37:16,706 [INFO] [save_profile_btn] Using stored locator: id=btn_save_profile
+2025-12-14 20:37:16,875 [INFO] [save_profile_btn] healing successful
+2025-12-14 20:37:17,009 [INFO] [logout_link] Using stored locator: xpath=//a[text()='Logout']
+2025-12-14 20:37:17,098 [INFO] [logout_link] healing successful
+2025-12-14 20:37:17,190 [INFO] [fallback_login_btn] Using stored locator: id=wrong_memory_id_123
+2025-12-14 20:37:27,674 [WARNING] [fallback_login_btn] Primary locator failed: id=wrong_memory_id_123 (TimeoutException)
+2025-12-14 20:37:27,674 [INFO] [fallback_login_btn] Healing attempt: class name=btn-primary (Fallback to Class='btn-primary')
+2025-12-14 20:37:27,679 [INFO] [fallback_login_btn] Healed locator: class name=btn-primary (Fallback to Class='btn-primary')
+2025-12-14 20:39:09,977 [INFO] Navigating to file:///E:\Advance_Masters_Project\My_AutoHeal\index.html
+2025-12-14 20:39:10,058 [INFO] [username_field] Using initial locator: id=username
+2025-12-14 20:39:10,168 [INFO] [login_button] Using stored locator: id=login-btn-primary
+2025-12-14 20:39:20,620 [WARNING] [login_button] Primary locator failed: id=login-btn-primary (TimeoutException)
+2025-12-14 20:39:20,620 [INFO] [login_button] Healing attempt: class name=btn-primary (Fallback to Class='btn-primary')
+2025-12-14 20:39:20,645 [INFO] [login_button] Healed locator: class name=btn-primary (Fallback to Class='btn-primary')
+2025-12-14 20:39:21,777 [INFO] [delete_alice_btn] Using stored locator: id=delete-alice-btn-primary
+2025-12-14 20:39:21,869 [INFO] [delete_alice_btn] healing successful
+2025-12-14 20:39:21,938 [INFO] [profile_email_input] Using stored locator: id=profile_email
+2025-12-14 20:39:21,991 [INFO] [profile_email_input] healing successful
+2025-12-14 20:39:22,022 [INFO] [profile_email_input] Using stored locator: id=profile_email
+2025-12-14 20:39:22,059 [INFO] [profile_email_input] healing successful
+2025-12-14 20:39:22,130 [INFO] [save_profile_btn] Using stored locator: id=btn_save_profile
+2025-12-14 20:39:22,187 [INFO] [save_profile_btn] healing successful
+2025-12-14 20:39:22,236 [INFO] [logout_link] Using stored locator: xpath=//a[text()='Logout']
+2025-12-14 20:39:22,301 [INFO] [logout_link] healing successful
+2025-12-14 20:39:22,369 [INFO] [fallback_login_btn] Using stored locator: id=wrong_memory_id_123
+2025-12-14 20:39:32,827 [WARNING] [fallback_login_btn] Primary locator failed: id=wrong_memory_id_123 (TimeoutException)
+2025-12-14 20:39:32,827 [INFO] [fallback_login_btn] Healing attempt: class name=btn-primary (Fallback to Class='btn-primary')
+2025-12-14 20:39:32,844 [INFO] [fallback_login_btn] Healed locator: class name=btn-primary (Fallback to Class='btn-primary')
+2025-12-14 20:52:26,145 [INFO] Navigating to file:///E:\Advance_Masters_Project\My_AutoHeal\index.html
+2025-12-14 20:52:26,277 [INFO] [username_field] Using initial locator: id=username
+2025-12-14 20:52:26,424 [INFO] [login_button] Using stored locator: id=login-btn-primary
+2025-12-14 20:52:36,952 [WARNING] [login_button] Primary locator failed: id=login-btn-primary (TimeoutException)
+2025-12-14 20:52:36,952 [INFO] [login_button] Healing attempt: class name=btn-primary (Fallback to Class='btn-primary')
+2025-12-14 20:52:36,972 [INFO] [login_button] Healed locator: class name=btn-primary (Fallback to Class='btn-primary')
+2025-12-14 20:52:38,245 [INFO] [delete_alice_btn] Using stored locator: id=delete-alice-btn-primary
+2025-12-14 20:52:38,305 [INFO] [delete_alice_btn] healing successful
+2025-12-14 20:52:38,453 [INFO] [profile_email_input] Using stored locator: id=profile_email
+2025-12-14 20:52:38,530 [INFO] [profile_email_input] healing successful
+2025-12-14 20:52:38,572 [INFO] [profile_email_input] Using stored locator: id=profile_email
+2025-12-14 20:52:38,656 [INFO] [profile_email_input] healing successful
+2025-12-14 20:52:38,715 [INFO] [save_profile_btn] Using stored locator: id=btn_save_profile
+2025-12-14 20:52:38,774 [INFO] [save_profile_btn] healing successful
+2025-12-14 20:52:38,837 [INFO] [logout_link] Using stored locator: xpath=//a[text()='Logout']
+2025-12-14 20:52:38,884 [INFO] [logout_link] healing successful
+2025-12-14 20:52:38,954 [INFO] [fallback_login_btn] Using stored locator: id=wrong_memory_id_123
+2025-12-14 20:52:48,980 [WARNING] [fallback_login_btn] Primary locator failed: id=wrong_memory_id_123 (TimeoutException)
+2025-12-14 20:52:48,980 [INFO] [fallback_login_btn] Healing attempt: class name=btn-primary (Fallback to Class='btn-primary')
+2025-12-14 20:52:48,980 [INFO] [fallback_login_btn] Healed locator: class name=btn-primary (Fallback to Class='btn-primary')
+2025-12-14 20:54:11,571 [INFO] Navigating to file:///E:\Advance_Masters_Project\My_AutoHeal\index.html
+2025-12-14 20:54:11,652 [INFO] [username_field] Using initial locator: id=username
+2025-12-14 20:54:11,763 [INFO] [login_button] Using stored locator: id=login-btn-primary
+2025-12-14 20:54:22,257 [WARNING] [login_button] Primary locator failed: id=login-btn-primary (TimeoutException)
+2025-12-14 20:54:22,257 [INFO] [login_button] Healing attempt: class name=btn-primary (Fallback to Class='btn-primary')
+2025-12-14 20:54:22,271 [INFO] [login_button] Healed locator: class name=btn-primary (Fallback to Class='btn-primary')
+2025-12-14 20:54:23,386 [INFO] [delete_alice_btn] Using stored locator: id=delete-alice-btn-primary
+2025-12-14 20:54:23,471 [INFO] [delete_alice_btn] healing successful
+2025-12-14 20:54:23,554 [INFO] [profile_email_input] Using stored locator: id=profile_email
+2025-12-14 20:54:23,609 [INFO] [profile_email_input] healing successful
+2025-12-14 20:54:23,635 [INFO] [profile_email_input] Using stored locator: id=profile_email
+2025-12-14 20:54:23,674 [INFO] [profile_email_input] healing successful
+2025-12-14 20:54:23,750 [INFO] [save_profile_btn] Using stored locator: id=btn_save_profile
+2025-12-14 20:54:23,804 [INFO] [save_profile_btn] healing successful
+2025-12-14 20:54:23,856 [INFO] [logout_link] Using stored locator: xpath=//a[text()='Logout']
+2025-12-14 20:54:23,913 [INFO] [logout_link] healing successful
+2025-12-14 20:54:23,978 [INFO] [fallback_login_btn] Using stored locator: id=wrong_memory_id_123
+2025-12-14 20:54:34,488 [WARNING] [fallback_login_btn] Primary locator failed: id=wrong_memory_id_123 (TimeoutException)
+2025-12-14 20:54:34,488 [INFO] [fallback_login_btn] Healing attempt: class name=btn-primary (Fallback to Class='btn-primary')
+2025-12-14 20:54:34,507 [INFO] [fallback_login_btn] Healed locator: class name=btn-primary (Fallback to Class='btn-primary')
+2025-12-14 20:54:43,074 [INFO] Navigating to file:///E:\Advance_Masters_Project\My_AutoHeal\index.html
+2025-12-14 20:54:43,145 [INFO] [username_field] Using initial locator: id=username
+2025-12-14 20:54:43,252 [INFO] [login_button] Using stored locator: id=login-btn-primary
+2025-12-14 20:54:53,788 [WARNING] [login_button] Primary locator failed: id=login-btn-primary (TimeoutException)
+2025-12-14 20:54:53,788 [INFO] [login_button] Healing attempt: class name=btn-primary (Fallback to Class='btn-primary')
+2025-12-14 20:54:53,805 [INFO] [login_button] Healed locator: class name=btn-primary (Fallback to Class='btn-primary')
+2025-12-14 20:54:54,915 [INFO] [delete_alice_btn] Using stored locator: id=delete-alice-btn-primary
+2025-12-14 20:54:54,990 [INFO] [delete_alice_btn] healing successful
+2025-12-14 20:54:55,073 [INFO] [profile_email_input] Using stored locator: id=profile_email
+2025-12-14 20:54:55,139 [INFO] [profile_email_input] healing successful
+2025-12-14 20:54:55,171 [INFO] [profile_email_input] Using stored locator: id=profile_email
+2025-12-14 20:54:55,212 [INFO] [profile_email_input] healing successful
+2025-12-14 20:54:55,411 [INFO] [save_profile_btn] Using stored locator: id=btn_save_profile
+2025-12-14 20:54:55,488 [INFO] [save_profile_btn] healing successful
+2025-12-14 20:54:55,539 [INFO] [logout_link] Using stored locator: xpath=//a[text()='Logout']
+2025-12-14 20:54:55,586 [INFO] [logout_link] healing successful
+2025-12-14 20:54:55,639 [INFO] [fallback_login_btn] Using stored locator: id=wrong_memory_id_123
+2025-12-14 20:55:06,158 [WARNING] [fallback_login_btn] Primary locator failed: id=wrong_memory_id_123 (TimeoutException)
+2025-12-14 20:55:06,158 [INFO] [fallback_login_btn] Healing attempt: class name=btn-primary (Fallback to Class='btn-primary')
+2025-12-14 20:55:06,177 [INFO] [fallback_login_btn] Healed locator: class name=btn-primary (Fallback to Class='btn-primary')
+2025-12-14 20:55:33,783 [INFO] Navigating to file:///E:\Advance_Masters_Project\My_AutoHeal\index.html
+2025-12-14 20:55:33,852 [INFO] [username_field] Using initial locator: id=username
+2025-12-14 20:55:33,958 [INFO] [login_button] Using stored locator: id=login-btn-primary
+2025-12-14 20:55:43,968 [WARNING] [login_button] Primary locator failed: id=login-btn-primary (TimeoutException)
+2025-12-14 20:55:43,968 [INFO] [login_button] Healing attempt: class name=btn-primary (Fallback to Class='btn-primary')
+2025-12-14 20:55:43,981 [INFO] [login_button] Healed locator: class name=btn-primary (Fallback to Class='btn-primary')
+2025-12-14 20:55:45,128 [INFO] [delete_alice_btn] Using stored locator: id=delete-alice-btn-primary
+2025-12-14 20:55:45,191 [INFO] [delete_alice_btn] healing successful
+2025-12-14 20:55:45,294 [INFO] [profile_email_input] Using stored locator: id=profile_email
+2025-12-14 20:55:45,457 [INFO] [profile_email_input] healing successful
+2025-12-14 20:55:45,490 [INFO] [profile_email_input] Using stored locator: id=profile_email
+2025-12-14 20:55:45,535 [INFO] [profile_email_input] healing successful
+2025-12-14 20:55:45,603 [INFO] [save_profile_btn] Using stored locator: id=btn_save_profile
+2025-12-14 20:55:45,741 [INFO] [save_profile_btn] healing successful
+2025-12-14 20:55:45,806 [INFO] [logout_link] Using stored locator: xpath=//a[text()='Logout']
+2025-12-14 20:55:45,868 [INFO] [logout_link] healing successful
+2025-12-14 20:55:45,955 [INFO] [fallback_login_btn] Using stored locator: id=wrong_memory_id_123
+2025-12-14 20:55:56,424 [WARNING] [fallback_login_btn] Primary locator failed: id=wrong_memory_id_123 (TimeoutException)
+2025-12-14 20:55:56,425 [INFO] [fallback_login_btn] Healing attempt: class name=btn-primary (Fallback to Class='btn-primary')
+2025-12-14 20:55:56,442 [INFO] [fallback_login_btn] Healed locator: class name=btn-primary (Fallback to Class='btn-primary')
+2025-12-14 21:04:50,906 [INFO] Navigating to file:///E:\Advance_Masters_Project\My_AutoHeal\index.html
+2025-12-14 21:04:50,976 [INFO] [login_button] Using stored locator: id=login-btn-primary
+2025-12-14 21:05:01,420 [WARNING] [login_button] Primary locator failed: id=login-btn-primary (TimeoutException)
+2025-12-14 21:05:01,421 [INFO] [login_button] Healing attempt: css selector=#login-btn-primary (ID->CSS by #id)
+2025-12-14 21:05:11,792 [INFO] [login_button] Healing attempt: xpath=//*[@id='login-btn-primary'] (ID->XPath by @id)
+2025-12-14 21:05:22,174 [ERROR] [login_button] Could not heal locator.
+2025-12-14 21:14:35,251 [INFO] --- SCENARIO 1: LOGIN (index.html) ---
+2025-12-14 21:14:35,253 [INFO] Navigating to file:///E:\Advance_Masters_Project\My_AutoHeal\index.html
+2025-12-14 21:14:35,335 [INFO] [login_button] Using stored locator: id=login-btn-primary
+2025-12-14 21:14:45,746 [WARNING] [login_button] Primary locator failed: id=login-btn-primary (TimeoutException)
+2025-12-14 21:14:45,746 [INFO] [login_button] Healing attempt: class name=btn-primary (Fallback to Class='btn-primary')
+2025-12-14 21:14:45,758 [INFO] [login_button] Healed locator: class name=btn-primary (Fallback to Class='btn-primary')
+2025-12-14 21:14:45,879 [INFO] [delete_alice_btn] Using stored locator: id=delete-alice-btn-primary
+2025-12-14 21:14:45,935 [INFO] [delete_alice_btn] healing successful
+2025-12-14 21:14:45,994 [INFO] [profile_email_input] Using stored locator: id=profile_email
+2025-12-14 21:14:46,045 [INFO] [profile_email_input] healing successful
+2025-12-14 21:14:46,117 [INFO] [save_profile_btn] Using stored locator: id=btn_save_profile
+2025-12-14 21:14:46,179 [INFO] [save_profile_btn] healing successful
+2025-12-14 21:14:46,229 [INFO] --- SCENARIO 2: E-COMMERCE ---
+2025-12-14 21:14:46,229 [INFO] Navigating to file:///E:\Advance_Masters_Project\My_AutoHeal\page_ecommerce.html
+2025-12-14 21:14:46,263 [INFO] [search_box] Using stored locator: id=search_box_v2
+2025-12-14 21:14:46,310 [INFO] [search_box] healing successful
+2025-12-14 21:14:46,351 [INFO] [add_laptop] Using stored locator: id=add_to_cart_laptop
+2025-12-14 21:14:46,402 [INFO] [add_laptop] healing successful
+2025-12-14 21:14:46,459 [INFO] [checkout_btn] Using stored locator: id=checkout_now
+2025-12-14 21:14:46,515 [INFO] [checkout_btn] healing successful
+2025-12-14 21:14:46,574 [INFO] --- SCENARIO 3: BLOG ---
+2025-12-14 21:14:46,575 [INFO] Navigating to file:///E:\Advance_Masters_Project\My_AutoHeal\page_blog.html
+2025-12-14 21:14:46,626 [INFO] [read_more] Using stored locator: id=read_more_link
+2025-12-14 21:14:46,717 [INFO] [read_more] healing successful
+2025-12-14 21:14:46,790 [INFO] [comment_box] Using stored locator: id=comment_box
+2025-12-14 21:14:46,943 [INFO] [comment_box] healing successful
+2025-12-14 21:14:46,991 [INFO] [post_comment] Using stored locator: id=post_comment_btn
+2025-12-14 21:14:47,083 [INFO] [post_comment] healing successful
+2025-12-14 21:14:47,151 [INFO] [subscribe_email] Using stored locator: id=subscribe_email
+2025-12-14 21:14:47,258 [INFO] [subscribe_email] healing successful
+2025-12-14 21:14:47,314 [INFO] --- SCENARIO 4: DASHBOARD ---
+2025-12-14 21:14:47,315 [INFO] Navigating to file:///E:\Advance_Masters_Project\My_AutoHeal\page_dashboard.html
+2025-12-14 21:14:47,355 [INFO] [update_settings] Using stored locator: id=update_settings_btn
+2025-12-14 21:14:47,502 [INFO] [update_settings] healing successful
+2025-12-14 21:14:47,776 [INFO] [toggle_dark] Using stored locator: id=toggle_dark_mode
+2025-12-14 21:14:47,915 [INFO] [toggle_dark] healing successful
+2025-12-14 21:14:47,992 [INFO] [view_stats] Using stored locator: id=view_analytics
+2025-12-14 21:14:48,048 [INFO] [view_stats] healing successful
+2025-12-14 21:14:48,327 [INFO] --- SCENARIO 5: CONTACT ---
+2025-12-14 21:14:48,329 [INFO] Navigating to file:///E:\Advance_Masters_Project\My_AutoHeal\page_contact.html
+2025-12-14 21:14:48,396 [INFO] [contact_name] Using stored locator: id=contact_name
+2025-12-14 21:14:48,494 [INFO] [contact_name] healing successful
+2025-12-14 21:14:48,564 [INFO] [contact_msg] Using stored locator: id=contact_message
+2025-12-14 21:14:48,669 [INFO] [contact_msg] healing successful
+2025-12-14 21:14:48,755 [INFO] [send_btn] Using stored locator: id=send_message_btn
+2025-12-14 21:14:48,811 [INFO] [send_btn] healing successful
+2025-12-17 23:30:56,394 [INFO] --- SCENARIO 1: LOGIN (index.html) ---
+2025-12-17 23:30:56,394 [INFO] Navigating to file:///E:\Advance_Masters_Project\My_AutoHeal\index.html
+2025-12-17 23:30:56,622 [INFO] [login_button] Using stored locator: id=login-btn-primary
+2025-12-17 23:31:06,973 [WARNING] [login_button] Primary locator failed: id=login-btn-primary (TimeoutException)
+2025-12-17 23:31:06,973 [INFO] [login_button] Healing attempt: class name=btn-primary (Fallback to Class='btn-primary')
+2025-12-17 23:31:06,988 [INFO] [login_button] healing successful
+2025-12-17 23:31:06,988 [INFO] [Performance] Method=Standard, Time=0.0152s, Attempts=4, Success=True
+2025-12-17 23:31:06,988 [INFO] [login_button] Healed locator: class name=btn-primary (Fallback to Class='btn-primary')
+2025-12-17 23:31:07,442 [INFO] [delete_alice_btn] Using stored locator: id=delete-alice-btn-primary
+2025-12-17 23:31:07,536 [INFO] [delete_alice_btn] healing successful
+2025-12-17 23:31:07,659 [INFO] [profile_email_input] Using stored locator: id=profile_email
+2025-12-17 23:31:07,728 [INFO] [profile_email_input] healing successful
+2025-12-17 23:31:07,828 [INFO] [save_profile_btn] Using stored locator: id=btn_save_profile
+2025-12-17 23:31:07,971 [INFO] [save_profile_btn] healing successful
+2025-12-17 23:31:08,378 [INFO] --- SCENARIO 2: E-COMMERCE ---
+2025-12-17 23:31:08,388 [INFO] Navigating to file:///E:\Advance_Masters_Project\My_AutoHeal\page_ecommerce.html
+2025-12-17 23:31:08,507 [INFO] [search_box] Using stored locator: id=search_box_v2
+2025-12-17 23:31:08,968 [INFO] [search_box] healing successful
+2025-12-17 23:31:09,105 [INFO] [add_laptop] Using stored locator: id=add_to_cart_laptop
+2025-12-17 23:31:09,208 [INFO] [add_laptop] healing successful
+2025-12-17 23:31:09,652 [INFO] [checkout_btn] Using stored locator: id=checkout_now
+2025-12-17 23:31:09,992 [INFO] [checkout_btn] healing successful
+2025-12-17 23:31:10,153 [INFO] --- SCENARIO 3: BLOG ---
+2025-12-17 23:31:10,157 [INFO] Navigating to file:///E:\Advance_Masters_Project\My_AutoHeal\page_blog.html
+2025-12-17 23:31:10,262 [INFO] [read_more] Using stored locator: id=read_more_link
+2025-12-17 23:31:10,512 [INFO] [read_more] healing successful
+2025-12-17 23:31:10,700 [INFO] [comment_box] Using stored locator: id=comment_box
+2025-12-17 23:31:10,776 [INFO] [comment_box] healing successful
+2025-12-17 23:31:10,886 [INFO] [post_comment] Using stored locator: id=post_comment_btn
+2025-12-17 23:31:11,006 [INFO] [post_comment] healing successful
+2025-12-17 23:31:11,103 [INFO] [subscribe_email] Using stored locator: id=subscribe_email
+2025-12-17 23:31:11,177 [INFO] [subscribe_email] healing successful
+2025-12-17 23:31:11,255 [INFO] --- SCENARIO 4: DASHBOARD ---
+2025-12-17 23:31:11,255 [INFO] Navigating to file:///E:\Advance_Masters_Project\My_AutoHeal\page_dashboard.html
+2025-12-17 23:31:11,311 [INFO] [update_settings] Using stored locator: id=update_settings_btn
+2025-12-17 23:31:11,469 [INFO] [update_settings] healing successful
+2025-12-17 23:31:11,572 [INFO] [toggle_dark] Using stored locator: id=toggle_dark_mode
+2025-12-17 23:31:11,680 [INFO] [toggle_dark] healing successful
+2025-12-17 23:31:11,763 [INFO] [view_stats] Using stored locator: id=view_analytics
+2025-12-17 23:31:11,879 [INFO] [view_stats] healing successful
+2025-12-17 23:31:11,993 [INFO] --- SCENARIO 5: CONTACT ---
+2025-12-17 23:31:11,993 [INFO] Navigating to file:///E:\Advance_Masters_Project\My_AutoHeal\page_contact.html
+2025-12-17 23:31:12,053 [INFO] [contact_name] Using stored locator: id=contact_name
+2025-12-17 23:31:12,190 [INFO] [contact_name] healing successful
+2025-12-17 23:31:12,270 [INFO] [contact_msg] Using stored locator: id=contact_message
+2025-12-17 23:31:12,376 [INFO] [contact_msg] healing successful
+2025-12-17 23:31:12,477 [INFO] [send_btn] Using stored locator: id=send_message_btn
+2025-12-17 23:31:12,604 [INFO] [send_btn] healing successful

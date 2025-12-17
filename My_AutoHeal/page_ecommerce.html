@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>E-Commerce Hub</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+        }
+
+        .product {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        .btn {
+            padding: 5px 10px;
+            background: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Shop Electronics</h1>
+    <div id="header">
+        <input type="text" id="search_box_v2" placeholder="Search products...">
+        <button id="search_btn">Go</button>
+    </div>
+
+    <div class="product">
+        <h3>Laptop Pro</h3>
+        <p>$999</p>
+        <button id="add_to_cart_laptop" class="btn">Add to Cart</button>
+    </div>
+
+    <div class="product">
+        <h3>Noise Cancelling Headphones</h3>
+        <p>$199</p>
+        <button id="add_to_cart_headphones" class="btn">Add to Cart</button>
+    </div>
+
+    <div id="cart_section">
+        <button id="checkout_now" class="btn">Checkout</button>
+    </div>
+</body>
+
+</html>

@@ -1,12 +1,12 @@
 {
   "login_button": {
     "by": "id",
-    "value": "login-btn-p]rimary",
+    "value": "login1212btn-p]rimary",
     "healed": true,
-    "heal_reason": "Levenshtein (dist=1)",
-    "last_success_ts": 1765422953.2532918,
+    "heal_reason": "Levenshtein (dist=6)",
+    "last_success_ts": 1766014273.3931575,
     "attributes": {
-      "id": "login-btn-p]rimary",
+      "id": "login1212btn-p]rimary",
       "class": "btn-primary",
       "type": "submit",
       "tag": "button",
@@ -16,9 +16,9 @@
   "delete_alice_btn": {
     "by": "id",
     "value": "delete-alice-btn-primary",
-    "healed": false,
-    "heal_reason": null,
-    "last_success_ts": 1765422954.7150989,
+    "healed": true,
+    "heal_reason": "Levenshtein (dist=3)",
+    "last_success_ts": 1766014284.2121038,
     "attributes": {
       "id": "delete-alice-btn-primary",
       "type": "submit",
@@ -29,9 +29,9 @@
   "profile_email_input": {
     "by": "id",
     "value": "profile_email",
-    "healed": false,
-    "heal_reason": null,
-    "last_success_ts": 1765422955.21037,
+    "healed": true,
+    "heal_reason": "Levenshtein (dist=1)",
+    "last_success_ts": 1766014294.5168812,
     "attributes": {
       "id": "profile_email",
       "name": "emai",
@@ -42,9 +42,9 @@
   "save_profile_btn": {
     "by": "id",
     "value": "btn_save_profile",
-    "healed": false,
-    "heal_reason": null,
-    "last_success_ts": 1765422955.782527,
+    "healed": true,
+    "heal_reason": "Levenshtein (dist=1)",
+    "last_success_ts": 1766014305.1341043,
     "attributes": {
       "id": "btn_save_profile",
       "type": "button",
@@ -52,41 +52,16 @@
       "text": "Save Profile"
     }
   },
-  "logout_link": {
-    "by": "xpath",
-    "value": "//a[text()='Logout']",
-    "healed": false,
-    "heal_reason": null,
-    "last_success_ts": 1765422956.111811,
-    "attributes": {
-      "id": "logout-link",
-      "tag": "a",
-      "text": "Logout"
-    }
-  },
-  "username_field": {
+  "search_box": {
     "by": "id",
-    "value": "username",
-    "healed": false,
-    "heal_reason": null,
-    "last_success_ts": 1765422942.662129,
+    "value": "search_box_v2",
+    "healed": true,
+    "heal_reason": "Levenshtein (dist=1)",
+    "last_success_ts": 1766014315.7755659,
     "attributes": {
-      "id": "username",
-      "name": "username",
+      "id": "search_box_v2",
       "type": "text",
       "tag": "input"
-    }
-  },
-  "fallback_login_btn": {
-    "by": "id",
-    "value": "wrong_memory_id_123",
-    "healed": false,
-    "heal_reason": null,
-    "last_success_ts": 1765422942.3596513,
-    "attributes": {
-      "class": "btn-primary",
-      "text": "Login",
-      "tag": "button"
     }
   }
 }
