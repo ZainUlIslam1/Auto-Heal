@@ -4,7 +4,7 @@
     "value": "btn-primary",
     "healed": true,
     "heal_reason": "Fallback to Class='btn-primary'",
-    "last_success_ts": 1766014267.3051236,
+    "last_success_ts": 1766455055.8025484,
     "attributes": {
       "id": "login1212btn-p]rimary",
       "class": "btn-primary",
@@ -18,7 +18,7 @@
     "value": "delete-alice-btn-primary",
     "healed": false,
     "heal_reason": null,
-    "last_success_ts": 1766014267.5344348,
+    "last_success_ts": 1766455056.0361485,
     "attributes": {
       "id": "delete-alice-btn-primary",
       "type": "submit",
@@ -31,10 +31,9 @@
     "value": "profile_email",
     "healed": false,
     "heal_reason": null,
-    "last_success_ts": 1766014267.7261221,
+    "last_success_ts": 1766455045.2213655,
     "attributes": {
-      "id": "profile_email",
-      "name": "emai",
+      "name": "email",
       "type": "email",
       "tag": "input"
     }
@@ -44,20 +43,15 @@
     "value": "btn_save_profile",
     "healed": false,
     "heal_reason": null,
-    "last_success_ts": 1766014267.9696164,
-    "attributes": {
-      "id": "btn_save_profile",
-      "type": "button",
-      "tag": "button",
-      "text": "Save Profile"
-    }
+    "last_success_ts": 1766455045.2213655,
+    "attributes": null
   },
   "logout_link": {
     "by": "xpath",
     "value": "//a[text()='Logout']",
     "healed": false,
     "heal_reason": null,
-    "last_success_ts": 1766014256.360917,
+    "last_success_ts": 1766455045.2213655,
     "attributes": null
   },
   "search_box": {
@@ -65,166 +59,103 @@
     "value": "search_box_v2",
     "healed": false,
     "heal_reason": null,
-    "last_success_ts": 1766014268.9666436,
-    "attributes": {
-      "id": "search_box_v2",
-      "type": "text",
-      "tag": "input"
-    }
+    "last_success_ts": 1766455045.2213655,
+    "attributes": null
   },
   "add_laptop": {
     "by": "id",
     "value": "add_to_cart_laptop",
     "healed": false,
     "heal_reason": null,
-    "last_success_ts": 1766014269.2062588,
-    "attributes": {
-      "id": "add_to_cart_laptop",
-      "class": "btn",
-      "type": "submit",
-      "tag": "button",
-      "text": "Add to Cart"
-    }
+    "last_success_ts": 1766455045.2213655,
+    "attributes": null
   },
   "checkout_btn": {
     "by": "id",
     "value": "checkout_now",
     "healed": false,
     "heal_reason": null,
-    "last_success_ts": 1766014269.9901786,
-    "attributes": {
-      "id": "checkout_now",
-      "class": "btn",
-      "type": "submit",
-      "tag": "button",
-      "text": "Checkout"
-    }
+    "last_success_ts": 1766455045.2213655,
+    "attributes": null
   },
   "read_more": {
     "by": "id",
     "value": "read_more_link",
     "healed": false,
     "heal_reason": null,
-    "last_success_ts": 1766014270.510033,
-    "attributes": {
-      "id": "read_more_link",
-      "class": "link",
-      "tag": "a",
-      "text": "Read More"
-    }
+    "last_success_ts": 1766455045.2213655,
+    "attributes": null
   },
   "comment_box": {
     "by": "id",
     "value": "comment_box",
     "healed": false,
     "heal_reason": null,
-    "last_success_ts": 1766014270.7741578,
-    "attributes": {
-      "id": "comment_box",
-      "type": "textarea",
-      "tag": "textarea"
-    }
+    "last_success_ts": 1766455045.2213655,
+    "attributes": null
   },
   "post_comment": {
     "by": "id",
     "value": "post_comment_btn",
     "healed": false,
     "heal_reason": null,
-    "last_success_ts": 1766014271.004755,
-    "attributes": {
-      "id": "post_comment_btn",
-      "type": "submit",
-      "tag": "button",
-      "text": "Post Comment"
-    }
+    "last_success_ts": 1766455045.2213655,
+    "attributes": null
   },
   "subscribe_email": {
     "by": "id",
     "value": "subscribe_email",
     "healed": false,
     "heal_reason": null,
-    "last_success_ts": 1766014271.175583,
-    "attributes": {
-      "id": "subscribe_email",
-      "name": "user_email_address",
-      "type": "email",
-      "tag": "input"
-    }
+    "last_success_ts": 1766455045.2213655,
+    "attributes": null
   },
   "update_settings": {
     "by": "id",
     "value": "update_settings_btn",
     "healed": false,
     "heal_reason": null,
-    "last_success_ts": 1766014271.4682412,
-    "attributes": {
-      "id": "update_settings_btn",
-      "type": "submit",
-      "tag": "button",
-      "text": "Update Profile"
-    }
+    "last_success_ts": 1766455045.2213655,
+    "attributes": null
   },
   "toggle_dark": {
     "by": "id",
     "value": "toggle_dark_mode",
     "healed": false,
     "heal_reason": null,
-    "last_success_ts": 1766014271.6776075,
-    "attributes": {
-      "id": "toggle_dark_mode",
-      "type": "submit",
-      "tag": "button",
-      "text": "Toggle Dark Mode"
-    }
+    "last_success_ts": 1766455045.2213655,
+    "attributes": null
   },
   "view_stats": {
     "by": "id",
     "value": "view_analytics",
     "healed": false,
     "heal_reason": null,
-    "last_success_ts": 1766014271.8766682,
-    "attributes": {
-      "id": "view_analytics",
-      "type": "submit",
-      "tag": "button",
-      "text": "View Full Report"
-    }
+    "last_success_ts": 1766455045.2213655,
+    "attributes": null
   },
   "contact_name": {
     "by": "id",
     "value": "contact_name",
     "healed": false,
     "heal_reason": null,
-    "last_success_ts": 1766014272.187678,
-    "attributes": {
-      "id": "contact_name",
-      "type": "text",
-      "tag": "input"
-    }
+    "last_success_ts": 1766455045.2213655,
+    "attributes": null
   },
   "contact_msg": {
     "by": "id",
     "value": "contact_message",
     "healed": false,
     "heal_reason": null,
-    "last_success_ts": 1766014272.37392,
-    "attributes": {
-      "id": "contact_message",
-      "type": "textarea",
-      "tag": "textarea"
-    }
+    "last_success_ts": 1766455045.2213655,
+    "attributes": null
   },
   "send_btn": {
     "by": "id",
     "value": "send_message_btn",
     "healed": false,
     "heal_reason": null,
-    "last_success_ts": 1766014272.6039338,
-    "attributes": {
-      "id": "send_message_btn",
-      "type": "button",
-      "tag": "button",
-      "text": "Send Message"
-    }
+    "last_success_ts": 1766455045.2213655,
+    "attributes": null
   }
 }

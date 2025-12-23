@@ -606,3 +606,202 @@
 2025-12-17 23:31:24,130 [INFO] [Performance] Method=Levenshtein, Time=0.1602s, Scanned=12, Success=True
 2025-12-17 23:31:24,130 [INFO] [delete_alice_btn] Healed locator: id=delete-alice-btn-primary (Levenshtein (dist=3))
 2025-12-17 23:31:24,312 [INFO] [profile_email_input] Using initial locator: id=profile_emal
+2025-12-17 23:31:34,332 [WARNING] [profile_email_input] Primary locator failed: id=profile_emal (TimeoutException)
+2025-12-17 23:31:34,332 [INFO] [profile_email_input] (Levenshtein) Healing attempt for id=profile_emal
+2025-12-17 23:31:34,450 [INFO] [profile_email_input] Found Levenshtein match: 'profile_email' (dist=1)
+2025-12-17 23:31:34,466 [INFO] [profile_email_input] healing successful
+2025-12-17 23:31:34,466 [INFO] [Performance] Method=Levenshtein, Time=0.1336s, Scanned=12, Success=True
+2025-12-17 23:31:34,466 [INFO] [profile_email_input] Healed locator: id=profile_email (Levenshtein (dist=1))
+2025-12-17 23:31:34,607 [INFO] [save_profile_btn] Using initial locator: id=btn_save_prfile
+2025-12-17 23:31:44,959 [WARNING] [save_profile_btn] Primary locator failed: id=btn_save_prfile (TimeoutException)
+2025-12-17 23:31:44,959 [INFO] [save_profile_btn] (Levenshtein) Healing attempt for id=btn_save_prfile
+2025-12-17 23:31:45,060 [INFO] [save_profile_btn] Found Levenshtein match: 'btn_save_profile' (dist=1)
+2025-12-17 23:31:45,074 [INFO] [save_profile_btn] healing successful
+2025-12-17 23:31:45,074 [INFO] [Performance] Method=Levenshtein, Time=0.1149s, Scanned=12, Success=True
+2025-12-17 23:31:45,074 [INFO] [save_profile_btn] Healed locator: id=btn_save_profile (Levenshtein (dist=1))
+2025-12-17 23:31:45,198 [INFO] --- SCENARIO 2: E-COMMERCE (Levenshtein) ---
+2025-12-17 23:31:45,198 [INFO] Navigating to file:///E:\Advance_Masters_Project\My_AutoHeal\page_ecommerce.html
+2025-12-17 23:31:45,243 [INFO] [search_box] Using initial locator: id=search_box_v
+2025-12-17 23:31:55,665 [WARNING] [search_box] Primary locator failed: id=search_box_v (TimeoutException)
+2025-12-17 23:31:55,665 [INFO] [search_box] (Levenshtein) Healing attempt for id=search_box_v
+2025-12-17 23:31:55,714 [INFO] [search_box] Found Levenshtein match: 'search_box_v2' (dist=1)
+2025-12-17 23:31:55,732 [INFO] [search_box] healing successful
+2025-12-17 23:31:55,732 [INFO] [Performance] Method=Levenshtein, Time=0.0671s, Scanned=7, Success=True
+2025-12-17 23:31:55,732 [INFO] [search_box] Healed locator: id=search_box_v2 (Levenshtein (dist=1))
+2025-12-17 23:31:55,816 [INFO] [add_laptop] Using initial locator: id=add_cart_laptop
+2025-12-17 23:32:06,265 [WARNING] [add_laptop] Primary locator failed: id=add_cart_laptop (TimeoutException)
+2025-12-17 23:32:06,265 [INFO] [add_laptop] (Levenshtein) Healing attempt for id=add_cart_laptop
+2025-12-17 23:32:06,330 [INFO] [add_laptop] Found Levenshtein match: 'add_to_cart_laptop' (dist=3)
+2025-12-17 23:32:06,340 [INFO] [add_laptop] healing successful
+2025-12-17 23:32:06,340 [INFO] [Performance] Method=Levenshtein, Time=0.0755s, Scanned=7, Success=True
+2025-12-17 23:32:06,340 [INFO] [add_laptop] Healed locator: id=add_to_cart_laptop (Levenshtein (dist=3))
+2025-12-17 23:32:06,446 [INFO] [checkout_btn] Using initial locator: id=checkout_nw
+2025-12-17 23:32:16,825 [WARNING] [checkout_btn] Primary locator failed: id=checkout_nw (TimeoutException)
+2025-12-17 23:32:16,825 [INFO] [checkout_btn] (Levenshtein) Healing attempt for id=checkout_nw
+2025-12-17 23:32:16,884 [INFO] [checkout_btn] Found Levenshtein match: 'checkout_now' (dist=1)
+2025-12-17 23:32:16,906 [INFO] [checkout_btn] healing successful
+2025-12-17 23:32:16,906 [INFO] [Performance] Method=Levenshtein, Time=0.0804s, Scanned=7, Success=True
+2025-12-17 23:32:16,906 [INFO] [checkout_btn] Healed locator: id=checkout_now (Levenshtein (dist=1))
+2025-12-17 23:32:16,997 [INFO] --- SCENARIO 3: BLOG (Levenshtein) ---
+2025-12-17 23:32:16,997 [INFO] Navigating to file:///E:\Advance_Masters_Project\My_AutoHeal\page_blog.html
+2025-12-17 23:32:17,038 [INFO] [read_more] Using initial locator: id=read_more_lnk
+2025-12-17 23:32:27,362 [WARNING] [read_more] Primary locator failed: id=read_more_lnk (TimeoutException)
+2025-12-17 23:32:27,362 [INFO] [read_more] (Levenshtein) Healing attempt for id=read_more_lnk
+2025-12-17 23:32:27,418 [INFO] [read_more] Found Levenshtein match: 'read_more_link' (dist=1)
+2025-12-17 23:32:27,430 [INFO] [read_more] healing successful
+2025-12-17 23:32:27,430 [INFO] [Performance] Method=Levenshtein, Time=0.0678s, Scanned=8, Success=True
+2025-12-17 23:32:27,430 [INFO] [read_more] Healed locator: id=read_more_link (Levenshtein (dist=1))
+2025-12-17 23:32:27,541 [INFO] [comment_box] Using initial locator: id=cmmnt_box
+2025-12-17 23:32:37,910 [WARNING] [comment_box] Primary locator failed: id=cmmnt_box (TimeoutException)
+2025-12-17 23:32:37,912 [INFO] [comment_box] (Levenshtein) Healing attempt for id=cmmnt_box
+2025-12-17 23:32:37,971 [INFO] [comment_box] Found Levenshtein match: 'comment_box' (dist=2)
+2025-12-17 23:32:37,982 [INFO] [comment_box] healing successful
+2025-12-17 23:32:37,982 [INFO] [Performance] Method=Levenshtein, Time=0.0706s, Scanned=8, Success=True
+2025-12-17 23:32:37,983 [INFO] [comment_box] Healed locator: id=comment_box (Levenshtein (dist=2))
+2025-12-17 23:32:38,062 [INFO] [post_comment] Using initial locator: id=post_commnt_btn
+2025-12-17 23:32:48,479 [WARNING] [post_comment] Primary locator failed: id=post_commnt_btn (TimeoutException)
+2025-12-17 23:32:48,479 [INFO] [post_comment] (Levenshtein) Healing attempt for id=post_commnt_btn
+2025-12-17 23:32:48,537 [INFO] [post_comment] Found Levenshtein match: 'post_comment_btn' (dist=1)
+2025-12-17 23:32:48,546 [INFO] [post_comment] healing successful
+2025-12-17 23:32:48,546 [INFO] [Performance] Method=Levenshtein, Time=0.0669s, Scanned=8, Success=True
+2025-12-17 23:32:48,546 [INFO] [post_comment] Healed locator: id=post_comment_btn (Levenshtein (dist=1))
+2025-12-17 23:32:48,648 [INFO] --- SCENARIO 4: DASHBOARD (Levenshtein) ---
+2025-12-17 23:32:48,648 [INFO] Navigating to file:///E:\Advance_Masters_Project\My_AutoHeal\page_dashboard.html
+2025-12-17 23:32:48,681 [INFO] [update_settings] Using initial locator: id=update_settngs_btn
+2025-12-17 23:32:59,024 [WARNING] [update_settings] Primary locator failed: id=update_settngs_btn (TimeoutException)
+2025-12-17 23:32:59,024 [INFO] [update_settings] (Levenshtein) Healing attempt for id=update_settngs_btn
+2025-12-17 23:32:59,072 [INFO] [update_settings] Found Levenshtein match: 'update_settings_btn' (dist=1)
+2025-12-17 23:32:59,084 [INFO] [update_settings] healing successful
+2025-12-17 23:32:59,084 [INFO] [Performance] Method=Levenshtein, Time=0.0600s, Scanned=6, Success=True
+2025-12-17 23:32:59,084 [INFO] [update_settings] Healed locator: id=update_settings_btn (Levenshtein (dist=1))
+2025-12-17 23:32:59,187 [INFO] [toggle_dark] Using initial locator: id=togle_dark_mode
+2025-12-17 23:33:09,598 [WARNING] [toggle_dark] Primary locator failed: id=togle_dark_mode (TimeoutException)
+2025-12-17 23:33:09,598 [INFO] [toggle_dark] (Levenshtein) Healing attempt for id=togle_dark_mode
+2025-12-17 23:33:09,645 [INFO] [toggle_dark] Found Levenshtein match: 'toggle_dark_mode' (dist=1)
+2025-12-17 23:33:09,648 [INFO] [toggle_dark] healing successful
+2025-12-17 23:33:09,648 [INFO] [Performance] Method=Levenshtein, Time=0.0504s, Scanned=6, Success=True
+2025-12-17 23:33:09,648 [INFO] [toggle_dark] Healed locator: id=toggle_dark_mode (Levenshtein (dist=1))
+2025-12-17 23:33:09,761 [INFO] --- SCENARIO 5: CONTACT (Levenshtein) ---
+2025-12-17 23:33:09,762 [INFO] Navigating to file:///E:\Advance_Masters_Project\My_AutoHeal\page_contact.html
+2025-12-17 23:33:09,795 [INFO] [contact_name] Using initial locator: id=cntact_name
+2025-12-17 23:33:20,136 [WARNING] [contact_name] Primary locator failed: id=cntact_name (TimeoutException)
+2025-12-17 23:33:20,136 [INFO] [contact_name] (Levenshtein) Healing attempt for id=cntact_name
+2025-12-17 23:33:20,170 [INFO] [contact_name] Found Levenshtein match: 'contact_name' (dist=1)
+2025-12-17 23:33:20,179 [INFO] [contact_name] healing successful
+2025-12-17 23:33:20,179 [INFO] [Performance] Method=Levenshtein, Time=0.0430s, Scanned=4, Success=True
+2025-12-17 23:33:20,179 [INFO] [contact_name] Healed locator: id=contact_name (Levenshtein (dist=1))
+2025-12-17 23:33:20,266 [INFO] [send_btn] Using initial locator: id=send_msg_btn
+2025-12-17 23:33:30,574 [WARNING] [send_btn] Primary locator failed: id=send_msg_btn (TimeoutException)
+2025-12-17 23:33:30,574 [INFO] [send_btn] (Levenshtein) Healing attempt for id=send_msg_btn
+2025-12-17 23:33:30,610 [INFO] [send_btn] Found Levenshtein match: 'send_message_btn' (dist=4)
+2025-12-17 23:33:30,623 [INFO] [send_btn] healing successful
+2025-12-17 23:33:30,623 [INFO] [Performance] Method=Levenshtein, Time=0.0487s, Scanned=4, Success=True
+2025-12-17 23:33:30,623 [INFO] [send_btn] Healed locator: id=send_message_btn (Levenshtein (dist=4))
+2025-12-18 02:24:01,618 [INFO] --- SCENARIO 1: LOGIN (Levenshtein) ---
+2025-12-18 02:24:01,618 [INFO] Navigating to file:///E:\Advance_Masters_Project\My_AutoHeal\index.html
+2025-12-18 02:24:01,695 [INFO] [login_button] Using initial locator: id=login-btn-prmary
+2025-12-18 02:24:12,100 [WARNING] [login_button] Primary locator failed: id=login-btn-prmary (TimeoutException)
+2025-12-18 02:24:12,104 [INFO] [login_button] (Levenshtein) Healing attempt for id=login-btn-prmary
+2025-12-18 02:24:12,189 [INFO] [login_button] Found Levenshtein match: 'login1212btn-p]rimary' (dist=6)
+2025-12-18 02:24:12,197 [INFO] [login_button] healing successful
+2025-12-18 02:24:12,197 [INFO] [Performance] Method=Levenshtein, Time=0.0935s, Scanned=12, Success=True
+2025-12-18 02:24:12,197 [INFO] [login_button] Healed locator: id=login1212btn-p]rimary (Levenshtein (dist=6))
+2025-12-18 02:24:12,309 [INFO] [delete_alice_btn] Using initial locator: id=delete-alice-btn-prim
+2025-12-18 02:24:22,761 [WARNING] [delete_alice_btn] Primary locator failed: id=delete-alice-btn-prim (TimeoutException)
+2025-12-18 02:24:22,761 [INFO] [delete_alice_btn] (Levenshtein) Healing attempt for id=delete-alice-btn-prim
+2025-12-18 02:24:22,835 [INFO] [delete_alice_btn] Found Levenshtein match: 'delete-alice-btn-primary' (dist=3)
+2025-12-18 02:24:22,844 [INFO] [delete_alice_btn] healing successful
+2025-12-18 02:24:22,844 [INFO] [Performance] Method=Levenshtein, Time=0.0828s, Scanned=12, Success=True
+2025-12-18 02:24:22,844 [INFO] [delete_alice_btn] Healed locator: id=delete-alice-btn-primary (Levenshtein (dist=3))
+2025-12-18 02:24:22,942 [INFO] [profile_email_input] Using initial locator: id=profile_emal
+2025-12-18 02:24:33,349 [WARNING] [profile_email_input] Primary locator failed: id=profile_emal (TimeoutException)
+2025-12-18 02:24:33,349 [INFO] [profile_email_input] (Levenshtein) Healing attempt for id=profile_emal
+2025-12-18 02:24:33,432 [INFO] [profile_email_input] Found Levenshtein match: 'profile_email' (dist=1)
+2025-12-18 02:24:33,441 [INFO] [profile_email_input] healing successful
+2025-12-18 02:24:33,441 [INFO] [Performance] Method=Levenshtein, Time=0.0927s, Scanned=12, Success=True
+2025-12-18 02:24:33,441 [INFO] [profile_email_input] Healed locator: id=profile_email (Levenshtein (dist=1))
+2025-12-18 02:24:33,556 [INFO] [save_profile_btn] Using initial locator: id=btn_save_prfile
+2025-12-18 02:24:44,044 [WARNING] [save_profile_btn] Primary locator failed: id=btn_save_prfile (TimeoutException)
+2025-12-18 02:24:44,044 [INFO] [save_profile_btn] (Levenshtein) Healing attempt for id=btn_save_prfile
+2025-12-18 02:24:44,113 [INFO] [save_profile_btn] Found Levenshtein match: 'btn_save_profile' (dist=1)
+2025-12-18 02:24:44,126 [INFO] [save_profile_btn] healing successful
+2025-12-18 02:24:44,126 [INFO] [Performance] Method=Levenshtein, Time=0.0819s, Scanned=12, Success=True
+2025-12-18 02:24:44,127 [INFO] [save_profile_btn] Healed locator: id=btn_save_profile (Levenshtein (dist=1))
+2025-12-18 02:24:44,226 [INFO] --- SCENARIO 2: E-COMMERCE (Levenshtein) ---
+2025-12-18 02:24:44,227 [INFO] Navigating to file:///E:\Advance_Masters_Project\My_AutoHeal\page_ecommerce.html
+2025-12-18 02:24:44,264 [INFO] [search_box] Using initial locator: id=search_box_v
+2025-12-18 02:24:54,729 [WARNING] [search_box] Primary locator failed: id=search_box_v (TimeoutException)
+2025-12-18 02:24:54,729 [INFO] [search_box] (Levenshtein) Healing attempt for id=search_box_v
+2025-12-18 02:24:54,780 [INFO] [search_box] Found Levenshtein match: 'search_box_v2' (dist=1)
+2025-12-18 02:24:54,790 [INFO] [search_box] healing successful
+2025-12-18 02:24:54,790 [INFO] [Performance] Method=Levenshtein, Time=0.0610s, Scanned=7, Success=True
+2025-12-18 02:24:54,790 [INFO] [search_box] Healed locator: id=search_box_v2 (Levenshtein (dist=1))
+2025-12-18 02:24:54,895 [INFO] [add_laptop] Using initial locator: id=add_cart_laptop
+2025-12-18 02:25:05,350 [WARNING] [add_laptop] Primary locator failed: id=add_cart_laptop (TimeoutException)
+2025-12-18 02:25:05,350 [INFO] [add_laptop] (Levenshtein) Healing attempt for id=add_cart_laptop
+2025-12-18 02:25:05,411 [INFO] [add_laptop] Found Levenshtein match: 'add_to_cart_laptop' (dist=3)
+2025-12-18 02:25:05,426 [INFO] [add_laptop] healing successful
+2025-12-18 02:25:05,426 [INFO] [Performance] Method=Levenshtein, Time=0.0761s, Scanned=7, Success=True
+2025-12-18 02:25:05,426 [INFO] [add_laptop] Healed locator: id=add_to_cart_laptop (Levenshtein (dist=3))
+2025-12-18 02:25:05,528 [INFO] [checkout_btn] Using initial locator: id=checkout_nw
+2025-12-18 02:25:15,910 [WARNING] [checkout_btn] Primary locator failed: id=checkout_nw (TimeoutException)
+2025-12-18 02:25:15,910 [INFO] [checkout_btn] (Levenshtein) Healing attempt for id=checkout_nw
+2025-12-18 02:25:15,972 [INFO] [checkout_btn] Found Levenshtein match: 'checkout_now' (dist=1)
+2025-12-18 02:25:15,982 [INFO] [checkout_btn] healing successful
+2025-12-18 02:25:15,982 [INFO] [Performance] Method=Levenshtein, Time=0.0728s, Scanned=7, Success=True
+2025-12-18 02:25:15,982 [INFO] [checkout_btn] Healed locator: id=checkout_now (Levenshtein (dist=1))
+2025-12-18 02:25:16,087 [INFO] --- SCENARIO 3: BLOG (Levenshtein) ---
+2025-12-18 02:25:16,088 [INFO] Navigating to file:///E:\Advance_Masters_Project\My_AutoHeal\page_blog.html
+2025-12-18 02:25:16,123 [INFO] [read_more] Using initial locator: id=read_more_lnk
+2025-12-18 02:25:26,140 [WARNING] [read_more] Primary locator failed: id=read_more_lnk (TimeoutException)
+2025-12-18 02:25:26,140 [INFO] [read_more] (Levenshtein) Healing attempt for id=read_more_lnk
+2025-12-18 02:25:26,197 [INFO] [read_more] Found Levenshtein match: 'read_more_link' (dist=1)
+2025-12-18 02:25:26,206 [INFO] [read_more] healing successful
+2025-12-18 02:25:26,206 [INFO] [Performance] Method=Levenshtein, Time=0.0660s, Scanned=8, Success=True
+2025-12-18 02:25:26,206 [INFO] [read_more] Healed locator: id=read_more_link (Levenshtein (dist=1))
+2025-12-18 02:25:26,321 [INFO] [comment_box] Using initial locator: id=cmmnt_box
+2025-12-18 02:25:36,742 [WARNING] [comment_box] Primary locator failed: id=cmmnt_box (TimeoutException)
+2025-12-18 02:25:36,742 [INFO] [comment_box] (Levenshtein) Healing attempt for id=cmmnt_box
+2025-12-18 02:25:36,803 [INFO] [comment_box] Found Levenshtein match: 'comment_box' (dist=2)
+2025-12-18 02:25:36,812 [INFO] [comment_box] healing successful
+2025-12-18 02:25:36,812 [INFO] [Performance] Method=Levenshtein, Time=0.0700s, Scanned=8, Success=True
+2025-12-18 02:25:36,812 [INFO] [comment_box] Healed locator: id=comment_box (Levenshtein (dist=2))
+2025-12-18 02:25:36,913 [INFO] [post_comment] Using initial locator: id=post_commnt_btn
+2025-12-18 02:25:47,306 [WARNING] [post_comment] Primary locator failed: id=post_commnt_btn (TimeoutException)
+2025-12-18 02:25:47,306 [INFO] [post_comment] (Levenshtein) Healing attempt for id=post_commnt_btn
+2025-12-18 02:25:47,384 [INFO] [post_comment] Found Levenshtein match: 'post_comment_btn' (dist=1)
+2025-12-18 02:25:47,393 [INFO] [post_comment] healing successful
+2025-12-18 02:25:47,394 [INFO] [Performance] Method=Levenshtein, Time=0.0882s, Scanned=8, Success=True
+2025-12-18 02:25:47,394 [INFO] [post_comment] Healed locator: id=post_comment_btn (Levenshtein (dist=1))
+2025-12-18 02:25:47,493 [INFO] --- SCENARIO 4: DASHBOARD (Levenshtein) ---
+2025-12-18 02:25:47,493 [INFO] Navigating to file:///E:\Advance_Masters_Project\My_AutoHeal\page_dashboard.html
+2025-12-18 02:25:47,528 [INFO] [update_settings] Using initial locator: id=update_settngs_btn
+2025-12-18 02:25:58,050 [WARNING] [update_settings] Primary locator failed: id=update_settngs_btn (TimeoutException)
+2025-12-18 02:25:58,050 [INFO] [update_settings] (Levenshtein) Healing attempt for id=update_settngs_btn
+2025-12-18 02:25:58,094 [INFO] [update_settings] Found Levenshtein match: 'update_settings_btn' (dist=1)
+2025-12-18 02:25:58,103 [INFO] [update_settings] healing successful
+2025-12-18 02:25:58,104 [INFO] [Performance] Method=Levenshtein, Time=0.0538s, Scanned=6, Success=True
+2025-12-18 02:25:58,104 [INFO] [update_settings] Healed locator: id=update_settings_btn (Levenshtein (dist=1))
+2025-12-18 02:25:58,203 [INFO] [toggle_dark] Using initial locator: id=togle_dark_mode
+2025-12-18 02:26:08,611 [WARNING] [toggle_dark] Primary locator failed: id=togle_dark_mode (TimeoutException)
+2025-12-18 02:26:08,611 [INFO] [toggle_dark] (Levenshtein) Healing attempt for id=togle_dark_mode
+2025-12-18 02:26:08,660 [INFO] [toggle_dark] Found Levenshtein match: 'toggle_dark_mode' (dist=1)
+2025-12-18 02:26:08,663 [INFO] [toggle_dark] healing successful
+2025-12-18 02:26:08,663 [INFO] [Performance] Method=Levenshtein, Time=0.0522s, Scanned=6, Success=True
+2025-12-18 02:26:08,663 [INFO] [toggle_dark] Healed locator: id=toggle_dark_mode (Levenshtein (dist=1))
+2025-12-18 02:26:08,767 [INFO] --- SCENARIO 5: CONTACT (Levenshtein) ---
+2025-12-18 02:26:08,767 [INFO] Navigating to file:///E:\Advance_Masters_Project\My_AutoHeal\page_contact.html
+2025-12-18 02:26:08,796 [INFO] [contact_name] Using initial locator: id=cntact_name
+2025-12-18 02:26:19,240 [WARNING] [contact_name] Primary locator failed: id=cntact_name (TimeoutException)
+2025-12-18 02:26:19,240 [INFO] [contact_name] (Levenshtein) Healing attempt for id=cntact_name
+2025-12-18 02:26:19,288 [INFO] [contact_name] Found Levenshtein match: 'contact_name' (dist=1)
+2025-12-18 02:26:19,298 [INFO] [contact_name] healing successful
+2025-12-18 02:26:19,302 [INFO] [Performance] Method=Levenshtein, Time=0.0619s, Scanned=4, Success=True
+2025-12-18 02:26:19,302 [INFO] [contact_name] Healed locator: id=contact_name (Levenshtein (dist=1))
+2025-12-18 02:26:19,405 [INFO] [send_btn] Using initial locator: id=send_msg_btn
+2025-12-18 02:26:29,854 [WARNING] [send_btn] Primary locator failed: id=send_msg_btn (TimeoutException)
+2025-12-18 02:26:29,854 [INFO] [send_btn] (Levenshtein) Healing attempt for id=send_msg_btn
+2025-12-18 02:26:29,884 [INFO] [send_btn] Found Levenshtein match: 'send_message_btn' (dist=4)
+2025-12-18 02:26:29,901 [INFO] [send_btn] healing successful
+2025-12-18 02:26:29,901 [INFO] [Performance] Method=Levenshtein, Time=0.0468s, Scanned=4, Success=True
+2025-12-18 02:26:29,901 [INFO] [send_btn] Healed locator: id=send_message_btn (Levenshtein (dist=4))

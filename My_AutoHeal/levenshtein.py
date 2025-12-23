@@ -73,7 +73,7 @@ class LevenshteinDriver(AutoHealingDriver):
             # Find all elements that possess this attribute
             elements = self.driver.find_elements(By.CSS_SELECTOR, f"[{search_attribute}]")
         except:
-            # Metrics: Performance Log (Failed - Exception)
+             # Metrics: Performance Log (Failed - Exception)
             duration = time.time() - start_time
             logging.info(f"[Performance] Method=Levenshtein, Time={duration:.4f}s, Scanned=0, Success=False")
             return None
@@ -126,7 +126,7 @@ class LevenshteinDriver(AutoHealingDriver):
                 duration = time.time() - start_time
                 logging.info(f"[Performance] Method=Levenshtein, Time={duration:.4f}s, Scanned={candidates_count}, Success=False")
                 pass
-                
+            
         # Metrics: Performance Log (Failed - No suitable candidate or verification failed)
         duration = time.time() - start_time
         logging.info(f"[Performance] Method=Levenshtein, Time={duration:.4f}s, Scanned={candidates_count}, Success=False")
