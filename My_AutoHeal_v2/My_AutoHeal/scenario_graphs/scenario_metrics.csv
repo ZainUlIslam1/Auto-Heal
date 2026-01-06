@@ -1,0 +1,16 @@
+Scenario,Method,SuccessRatePercent,AverageHealingTimeSeconds
+Login & Profile,Baseline,0.0,0.0000
+Login & Profile,Standard,100.0,0.0196
+Login & Profile,Levenshtein,100.0,0.1287
+E-commerce,Baseline,0.0,0.0000
+E-commerce,Standard,0.0,0.0000
+E-commerce,Levenshtein,100.0,0.0738
+Blog,Baseline,0.0,0.0000
+Blog,Standard,0.0,0.0000
+Blog,Levenshtein,100.0,0.0837
+Dashboard,Baseline,0.0,0.0000
+Dashboard,Standard,0.0,0.0000
+Dashboard,Levenshtein,100.0,0.0693
+Contact,Baseline,0.0,0.0000
+Contact,Standard,0.0,20.9220
+Contact,Levenshtein,100.0,0.0668

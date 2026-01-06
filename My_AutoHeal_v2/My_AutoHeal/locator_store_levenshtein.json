@@ -1,0 +1,182 @@
+{
+  "login_button": {
+    "by": "id",
+    "value": "login-btn-primary",
+    "healed": true,
+    "heal_reason": "Levenshtein (dist=1)",
+    "last_success_ts": 1767589621.043586,
+    "attributes": {
+      "id": "login-btn-primary",
+      "class": "btn-primary",
+      "type": "submit",
+      "tag": "button",
+      "text": "Login"
+    }
+  },
+  "delete_alice_btn": {
+    "by": "id",
+    "value": "delete-alice-btn-primary",
+    "healed": true,
+    "heal_reason": "Levenshtein (dist=3)",
+    "last_success_ts": 1767589631.4168205,
+    "attributes": {
+      "id": "delete-alice-btn-primary",
+      "type": "submit",
+      "tag": "button",
+      "text": "Delete Alice account"
+    }
+  },
+  "profile_email_input": {
+    "by": "id",
+    "value": "profile_email",
+    "healed": true,
+    "heal_reason": "Levenshtein (dist=1)",
+    "last_success_ts": 1767589642.2717276,
+    "attributes": {
+      "id": "profile_email",
+      "name": "email",
+      "type": "email",
+      "tag": "input"
+    }
+  },
+  "save_profile_btn": {
+    "by": "id",
+    "value": "btn_save_profile",
+    "healed": true,
+    "heal_reason": "Levenshtein (dist=1)",
+    "last_success_ts": 1767589653.1569142,
+    "attributes": {
+      "id": "btn_save_profile",
+      "type": "submit",
+      "tag": "button",
+      "text": "Save profile"
+    }
+  },
+  "search_box": {
+    "by": "id",
+    "value": "searchbox_v2",
+    "healed": true,
+    "heal_reason": "Levenshtein (dist=2)",
+    "last_success_ts": 1767589664.0609455,
+    "attributes": {
+      "id": "searchbox_v2",
+      "type": "text",
+      "tag": "input"
+    }
+  },
+  "add_laptop": {
+    "by": "id",
+    "value": "add_to_cart_laptop",
+    "healed": true,
+    "heal_reason": "Levenshtein (dist=3)",
+    "last_success_ts": 1767589674.4378428,
+    "attributes": {
+      "id": "add_to_cart_laptop",
+      "type": "submit",
+      "tag": "button",
+      "text": "Add to cart"
+    }
+  },
+  "checkout_btn": {
+    "by": "id",
+    "value": "checkout_now",
+    "healed": true,
+    "heal_reason": "Levenshtein (dist=1)",
+    "last_success_ts": 1767589685.2670724,
+    "attributes": {
+      "id": "checkout_now",
+      "type": "submit",
+      "tag": "button",
+      "text": "Checkout now"
+    }
+  },
+  "read_more": {
+    "by": "id",
+    "value": "read_more_link",
+    "healed": true,
+    "heal_reason": "Levenshtein (dist=1)",
+    "last_success_ts": 1767589696.207802,
+    "attributes": {
+      "id": "read_more_link",
+      "type": "submit",
+      "tag": "button",
+      "text": "Read more"
+    }
+  },
+  "comment_box": {
+    "by": "id",
+    "value": "comment_box",
+    "healed": true,
+    "heal_reason": "Levenshtein (dist=2)",
+    "last_success_ts": 1767589707.006564,
+    "attributes": {
+      "id": "comment_box",
+      "type": "textarea",
+      "tag": "textarea"
+    }
+  },
+  "post_comment": {
+    "by": "id",
+    "value": "post_comment_btn",
+    "healed": true,
+    "heal_reason": "Levenshtein (dist=1)",
+    "last_success_ts": 1767589717.3445585,
+    "attributes": {
+      "id": "post_comment_btn",
+      "type": "submit",
+      "tag": "button",
+      "text": "Post comment"
+    }
+  },
+  "update_settings": {
+    "by": "id",
+    "value": "updatesettings_btn",
+    "healed": true,
+    "heal_reason": "Levenshtein (dist=2)",
+    "last_success_ts": 1767589728.2696981,
+    "attributes": {
+      "id": "updatesettings_btn",
+      "type": "submit",
+      "tag": "button",
+      "text": "Update settings"
+    }
+  },
+  "toggle_dark": {
+    "by": "id",
+    "value": "toggle_dark_mode",
+    "healed": true,
+    "heal_reason": "Levenshtein (dist=1)",
+    "last_success_ts": 1767589739.1121101,
+    "attributes": {
+      "id": "toggle_dark_mode",
+      "type": "submit",
+      "tag": "button",
+      "text": "Toggle dark mode"
+    }
+  },
+  "contact_name": {
+    "by": "id",
+    "value": "contact_name",
+    "healed": true,
+    "heal_reason": "Levenshtein (dist=1)",
+    "last_success_ts": 1767589749.9878569,
+    "attributes": {
+      "id": "contact_name",
+      "type": "text",
+      "tag": "input"
+    }
+  },
+  "send_btn": {
+    "by": "id",
+    "value": "send-message-btn",
+    "healed": true,
+    "heal_reason": "Levenshtein (dist=6)",
+    "last_success_ts": 1767589760.3325195,
+    "attributes": {
+      "id": "send-message-btn",
+      "type": "submit",
+      "tag": "button",
+      "text": "Send message"
+    }
+  }
+}

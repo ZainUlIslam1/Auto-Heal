@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Auto-Heal Demo • E-commerce</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    /* ===== Global reset ===== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ===== Background & layout ===== */
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #1f2937 0, #020617 35%, #020617 100%);
+      color: #e5e7eb;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 1100px;
+      padding: 24px 16px 40px;
+    }
+
+    /* ===== Top nav with glass effect ===== */
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      margin-bottom: 22px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      backdrop-filter: blur(14px);
+      box-shadow:
+        0 16px 40px rgba(15, 23, 42, 0.65),
+        0 0 0 1px rgba(15, 23, 42, 0.9);
+    }
+
+    .nav a {
+      text-decoration: none;
+      font-size: 0.85rem;
+      color: #cbd5f5;
+      padding: 6px 14px;
+      border-radius: 999px;
+      position: relative;
+      transition: all 0.18s ease-out;
+    }
+
+    .nav a.active {
+      background: linear-gradient(135deg, #4f46e5, #22c55e);
+      color: #f9fafb;
+      box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.4);
+    }
+
+    .nav a:not(.active):hover {
+      background: rgba(148, 163, 184, 0.12);
+      transform: translateY(-1px);
+    }
+
+    /* ===== Header text ===== */
+    header h1 {
+      font-size: 2rem;
+      letter-spacing: 0.03em;
+      margin-bottom: 4px;
+    }
+
+    .subtitle {
+      color: #9ca3af;
+      font-size: 0.95rem;
+      max-width: 640px;
+      margin-bottom: 16px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .chip {
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: #e5e7eb;
+    }
+
+    /* ===== Main layout ===== */
+    .layout {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 18px;
+    }
+
+    @media (max-width: 880px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ===== Neumorphic / 3D-ish cards ===== */
+    .card {
+      position: relative;
+      background: radial-gradient(circle at top left, #0b1220 0, #020617 55%);
+      border-radius: 18px;
+      padding: 18px 20px 20px;
+      box-shadow:
+        12px 18px 40px rgba(0, 0, 0, 0.75),
+        -6px -4px 18px rgba(148, 163, 184, 0.06);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      overflow: hidden;
+      transform: translateZ(0);
+      transition: transform 0.18s ease-out, box-shadow 0.18s ease-out;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -60%;
+      background: radial-gradient(circle at top left, rgba(96, 165, 250, 0.19), transparent 55%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease-out;
+    }
+
+    .card:hover {
+      transform: translateY(-2px) scale(1.01);
+      box-shadow:
+        16px 22px 50px rgba(0, 0, 0, 0.9),
+        -4px -4px 18px rgba(148, 163, 184, 0.08);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card h2 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    .badge-step {
+      display: inline-block;
+      font-size: 0.75rem;
+      padding: 2px 9px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: #7dd3fc;
+      margin-bottom: 6px;
+    }
+
+    .muted {
+      color: #9ca3af;
+      font-size: 0.85rem;
+      margin-top: 4px;
+    }
+
+    /* ===== Form controls ===== */
+    label {
+      display: block;
+      font-size: 0.85rem;
+      margin-bottom: 4px;
+      color: #e5e7eb;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      background: rgba(15, 23, 42, 0.85);
+      color: #e5e7eb;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+      outline: none;
+      transition: border-color 0.15s ease-out, box-shadow 0.15s ease-out, background 0.15s ease-out;
+    }
+
+    input::placeholder {
+      color: #6b7280;
+    }
+
+    input:focus {
+      border-color: #4f46e5;
+      box-shadow: 0 0 0 1px rgba(129, 140, 248, 0.7);
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    /* ===== Buttons with depth ===== */
+    button {
+      border: none;
+      border-radius: 999px;
+      padding: 8px 18px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+      font-weight: 500;
+      position: relative;
+      overflow: hidden;
+      transform: translateY(0);
+      transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, filter 0.12s ease-out;
+    }
+
+    button::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.28), transparent 55%);
+      opacity: 0;
+      transition: opacity 0.15s ease-out;
+    }
+
+    button:hover::after {
+      opacity: 1;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 25px rgba(15, 23, 42, 0.9);
+      filter: brightness(1.04);
+    }
+
+    button:active {
+      transform: translateY(0);
+      box-shadow: none;
+      filter: brightness(0.96);
+    }
+
+    #add_to_cart_laptop {
+      background: linear-gradient(135deg, #4f46e5, #6366f1);
+      color: #f9fafb;
+      margin-top: 8px;
+      margin-right: 8px;
+    }
+
+    #checkout_now {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: #ecfdf5;
+      margin-top: 10px;
+    }
+
+    .price {
+      font-size: 0.95rem;
+      color: #93c5fd;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    .product-card {
+      margin-top: 12px;
+      border-radius: 16px;
+      padding: 14px 14px 12px;
+      background: radial-gradient(circle at top left, rgba(30, 64, 175, 0.3), rgba(15, 23, 42, 1));
+      border: 1px solid rgba(129, 140, 248, 0.7);
+      box-shadow:
+        0 18px 35px rgba(15, 23, 42, 0.9),
+        0 0 0 1px rgba(15, 23, 42, 0.8);
+    }
+
+    .product-title {
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .product-meta {
+      font-size: 0.85rem;
+      color: #9ca3af;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid rgba(55, 65, 81, 0.7);
+      margin: 14px 0;
+    }
+
+    ul {
+      padding-left: 18px;
+      font-size: 0.9rem;
+      color: #d1d5db;
+    }
+
+    li {
+      margin-bottom: 4px;
+    }
+
+    code {
+      font-family: "Cascadia Code", Consolas, monospace;
+      font-size: 0.8rem;
+      background: rgba(15, 23, 42, 0.9);
+      padding: 1px 5px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: #e5e7eb;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- Nav -->
+    <nav class="nav">
+      <a href="index.html">Login & Profile</a>
+      <a href="page_ecommerce.html" class="active">E-commerce</a>
+      <a href="page_blog.html">Blog</a>
+      <a href="page_dashboard.html">Dashboard</a>
+      <a href="page_contact.html">Contact</a>
+    </nav>
+
+    <!-- Header -->
+    <header>
+      <h1>Scenario 2 • E-commerce</h1>
+      <p class="subtitle">
+        This page is used to test searching for a laptop, adding it to the cart, and
+        going to checkout. The test intentionally uses broken locators so the
+        auto-healing logic has to fix them.
+      </p>
+      <div class="chips">
+        <span class="chip">Search box</span>
+        <span class="chip">Add to cart</span>
+        <span class="chip">Checkout flow</span>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <div class="layout">
+      <!-- Left: search and product -->
+      <section class="card">
+        <span class="badge-step">Step 1 • Search for a product</span>
+        <h2>Search box</h2>
+        <p class="muted">
+          The script first uses an old/broken ID for the search field. The
+          auto-healing driver must still find this real input.
+        </p>
+
+        <div style="margin-top: 10px;">
+          <label for="search_box_v2">Search term</label>
+          <input
+            id="search_box_v2"
+            type="text"
+            placeholder="Type 'Laptop' here..."
+          >
+          <p class="muted">
+            Target locator: <code>id="search_box_v2"</code>
+          </p>
+        </div>
+
+        <hr>
+
+        <span class="badge-step">Step 2 • Add laptop to cart</span>
+        <div class="product-cards">
+          <div class="product-title">Developer Laptop Pro 15"</div>
+          <div class="product-meta">16 GB RAM • 512 GB SSD • Intel i7</div>
+          <div class="price">$1,499</div>
+          <button id="add_to_cart_laptop">Add to cart</button>
+        </div>
+        <p class="muted_s" style="margin-top: 6px;">
+          The test uses a legacy button ID. Healing must map it to
+          <code>id="add_to_cart_laptop"</code>.
+        </p>
+      </section>
+
+      <!-- Right: checkout & explanation -->
+      <section class="card">
+        <span class="badge-step">Step 3 • Checkout</span>
+        <h2>Checkout summary</h2>
+        <p class="muted">
+          After adding the laptop to the cart, the test clicks the checkout
+          button using a broken locator. Auto-healing should recover this real
+          button.
+        </p>
+
+        <button id="checkout_now">Checkout now</button>
+        <p class="muted" style="margin-top: 6px;">
+          Target locator: <code>id="checkout_now"</code>
+        </p>
+
+        <hr>
+
+        <span class="badge-step">What this page is testing</span>
+        <h2>Healing goals on this page</h2>
+        <ul>
+          <li>Can the search box be found when the test gives the wrong ID?</li>
+          <li>Can the “Add to cart” button be recovered using stored attributes and rules?</li>
+          <li>Can the checkout button still be clicked after locator changes?</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+</body>
+</html>

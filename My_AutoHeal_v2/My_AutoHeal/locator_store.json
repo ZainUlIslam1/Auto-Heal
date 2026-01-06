@@ -1,0 +1,156 @@
+{
+  "login_button": {
+    "by": "id",
+    "value": "login-btn-primary",
+    "healed": false,
+    "heal_reason": null,
+    "last_success_ts": 1767590173.0617545,
+    "attributes": {
+      "id": "login-btn-primary",
+      "class": "btn-primary",
+      "type": "submit",
+      "tag": "button",
+      "text": "Login"
+    }
+  },
+  "delete_alice_btn": {
+    "by": "id",
+    "value": "delete-alice-btn-primary",
+    "healed": false,
+    "heal_reason": null,
+    "last_success_ts": 1767590172.4991527,
+    "attributes": null
+  },
+  "profile_email_input": {
+    "by": "id",
+    "value": "profile_email",
+    "healed": false,
+    "heal_reason": null,
+    "last_success_ts": 1767590172.4991527,
+    "attributes": {
+      "name": "email",
+      "type": "email",
+      "tag": "input"
+    }
+  },
+  "save_profile_btn": {
+    "by": "id",
+    "value": "btn_save_profile",
+    "healed": false,
+    "heal_reason": null,
+    "last_success_ts": 1767590172.4991527,
+    "attributes": null
+  },
+  "logout_link": {
+    "by": "xpath",
+    "value": "//a[text()='Logout']",
+    "healed": false,
+    "heal_reason": null,
+    "last_success_ts": 1767590172.4991527,
+    "attributes": null
+  },
+  "search_box": {
+    "by": "id",
+    "value": "search_box_v2",
+    "healed": false,
+    "heal_reason": null,
+    "last_success_ts": 1767590172.4991527,
+    "attributes": null
+  },
+  "add_laptop": {
+    "by": "id",
+    "value": "add_to_cart_laptop",
+    "healed": false,
+    "heal_reason": null,
+    "last_success_ts": 1767590172.4991527,
+    "attributes": null
+  },
+  "checkout_btn": {
+    "by": "id",
+    "value": "checkout_now",
+    "healed": false,
+    "heal_reason": null,
+    "last_success_ts": 1767590172.4991527,
+    "attributes": null
+  },
+  "read_more": {
+    "by": "id",
+    "value": "read_more_link",
+    "healed": false,
+    "heal_reason": null,
+    "last_success_ts": 1767590172.4991527,
+    "attributes": null
+  },
+  "comment_box": {
+    "by": "id",
+    "value": "comment_box",
+    "healed": false,
+    "heal_reason": null,
+    "last_success_ts": 1767590172.4991527,
+    "attributes": null
+  },
+  "post_comment": {
+    "by": "id",
+    "value": "post_comment_btn",
+    "healed": false,
+    "heal_reason": null,
+    "last_success_ts": 1767590172.4991527,
+    "attributes": null
+  },
+  "subscribe_email": {
+    "by": "id",
+    "value": "subscribe_email",
+    "healed": false,
+    "heal_reason": null,
+    "last_success_ts": 1767590172.4991527,
+    "attributes": null
+  },
+  "update_settings": {
+    "by": "id",
+    "value": "update_settings_btn",
+    "healed": false,
+    "heal_reason": null,
+    "last_success_ts": 1767590172.4991527,
+    "attributes": null
+  },
+  "toggle_dark": {
+    "by": "id",
+    "value": "toggle_dark_mode",
+    "healed": false,
+    "heal_reason": null,
+    "last_success_ts": 1767590172.4991527,
+    "attributes": null
+  },
+  "view_stats": {
+    "by": "id",
+    "value": "view_analytics",
+    "healed": false,
+    "heal_reason": null,
+    "last_success_ts": 1767590172.4991527,
+    "attributes": null
+  },
+  "contact_name": {
+    "by": "id",
+    "value": "contact_name",
+    "healed": false,
+    "heal_reason": null,
+    "last_success_ts": 1767590172.4991527,
+    "attributes": null
+  },
+  "contact_msg": {
+    "by": "id",
+    "value": "contact_message",
+    "healed": false,
+    "heal_reason": null,
+    "last_success_ts": 1767590172.4991527,
+    "attributes": null
+  },
+  "send_btn": {
+    "by": "id",
+    "value": "send_message_btn",
+    "healed": false,
+    "heal_reason": null,
+    "last_success_ts": 1767590172.4991527,
+    "attributes": null
+  }
+}

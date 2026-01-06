@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Auto-Heal Demo • Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    /* ===== Global reset ===== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ===== Background & layout ===== */
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #1f2937 0, #020617 35%, #020617 100%);
+      color: #e5e7eb;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 1100px;
+      padding: 24px 16px 40px;
+    }
+
+    /* ===== Top nav with glass effect ===== */
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      margin-bottom: 22px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      backdrop-filter: blur(14px);
+      box-shadow:
+        0 16px 40px rgba(15, 23, 42, 0.65),
+        0 0 0 1px rgba(15, 23, 42, 0.9);
+    }
+
+    .nav a {
+      text-decoration: none;
+      font-size: 0.85rem;
+      color: #cbd5f5;
+      padding: 6px 14px;
+      border-radius: 999px;
+      position: relative;
+      transition: all 0.18s ease-out;
+    }
+
+    .nav a.active {
+      background: linear-gradient(135deg, #4f46e5, #22c55e);
+      color: #f9fafb;
+      box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.4);
+    }
+
+    .nav a:not(.active):hover {
+      background: rgba(148, 163, 184, 0.12);
+      transform: translateY(-1px);
+    }
+
+    /* ===== Header text ===== */
+    header h1 {
+      font-size: 2rem;
+      letter-spacing: 0.03em;
+      margin-bottom: 4px;
+    }
+
+    .subtitle {
+      color: #9ca3af;
+      font-size: 0.95rem;
+      max-width: 640px;
+      margin-bottom: 16px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .chip {
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: #e5e7eb;
+    }
+
+    /* ===== Main layout ===== */
+    .layout {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 18px;
+    }
+
+    @media (max-width: 880px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ===== Neumorphic / 3D-ish cards ===== */
+    .card {
+      position: relative;
+      background: radial-gradient(circle at top left, #0b1220 0, #020617 55%);
+      border-radius: 18px;
+      padding: 18px 20px 20px;
+      box-shadow:
+        12px 18px 40px rgba(0, 0, 0, 0.75),
+        -6px -4px 18px rgba(148, 163, 184, 0.06);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      overflow: hidden;
+      transform: translateZ(0);
+      transition: transform 0.18s ease-out, box-shadow 0.18s ease-out;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -60%;
+      background: radial-gradient(circle at top left, rgba(96, 165, 250, 0.19), transparent 55%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease-out;
+    }
+
+    .card:hover {
+      transform: translateY(-2px) scale(1.01);
+      box-shadow:
+        16px 22px 50px rgba(0, 0, 0, 0.9),
+        -4px -4px 18px rgba(148, 163, 184, 0.08);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card h2 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    .badge-step {
+      display: inline-block;
+      font-size: 0.75rem;
+      padding: 2px 9px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: #7dd3fc;
+      margin-bottom: 6px;
+    }
+
+    .muted {
+      color: #9ca3af;
+      font-size: 0.85rem;
+      margin-top: 4px;
+    }
+
+    /* ===== Buttons with depth ===== */
+    button {
+      border: none;
+      border-radius: 999px;
+      padding: 8px 18px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+      font-weight: 500;
+      position: relative;
+      overflow: hidden;
+      transform: translateY(0);
+      transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, filter 0.12s ease-out;
+    }
+
+    button::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.28), transparent 55%);
+      opacity: 0;
+      transition: opacity 0.15s ease-out;
+    }
+
+    button:hover::after {
+      opacity: 1;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 25px rgba(15, 23, 42, 0.9);
+      filter: brightness(1.04);
+    }
+
+    button:active {
+      transform: translateY(0);
+      box-shadow: none;
+      filter: brightness(0.96);
+    }
+
+    #read_more_link {
+      background: linear-gradient(135deg, #4f46e5, #6366f1);
+      color: #f9fafb;
+      margin-top: 10px;
+    }
+
+    #post_comment_btn {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: #ecfdf5;
+      margin-top: 10px;
+    }
+
+    /* ===== Textarea & input ===== */
+    #comment_box {
+      width: 100%;
+      min-height: 80px;
+      border-radius: 16px;
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      background: rgba(15, 23, 42, 0.85);
+      color: #e5e7eb;
+      font-size: 0.9rem;
+      padding: 8px 10px;
+      margin-top: 8px;
+      resize: vertical;
+      outline: none;
+      transition: border-color 0.15s ease-out, box-shadow 0.15s ease-out, background 0.15s ease-out;
+    }
+
+    #comment_box::placeholder {
+      color: #6b7280;
+    }
+
+    #comment_box:focus {
+      border-color: #4f46e5;
+      box-shadow: 0 0 0 1px rgba(129, 140, 248, 0.7);
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    #subscribe_email {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      background: rgba(15, 23, 42, 0.85);
+      color: #e5e7eb;
+      font-size: 0.9rem;
+      margin-top: 8px;
+      outline: none;
+      transition: border-color 0.15s ease-out, box-shadow 0.15s ease-out, background 0.15s ease-out;
+    }
+
+    #subscribe_email::placeholder {
+      color: #6b7280;
+    }
+
+    #subscribe_email:focus {
+      border-color: #4f46e5;
+      box-shadow: 0 0 0 1px rgba(129, 140, 248, 0.7);
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      margin-bottom: 4px;
+      color: #e5e7eb;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid rgba(55, 65, 81, 0.7);
+      margin: 14px 0;
+    }
+
+    ul {
+      padding-left: 18px;
+      font-size: 0.9rem;
+      color: #d1d5db;
+    }
+
+    li {
+      margin-bottom: 4px;
+    }
+
+    code {
+      font-family: "Cascadia Code", Consolas, monospace;
+      font-size: 0.8rem;
+      background: rgba(15, 23, 42, 0.9);
+      padding: 1px 5px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: #e5e7eb;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- Nav -->
+    <nav class="nav">
+      <a href="index.html">Login & Profile</a>
+      <a href="page_ecommerce.html">E-commerce</a>
+      <a href="page_blog.html" class="active">Blog</a>
+      <a href="page_dashboard.html">Dashboard</a>
+      <a href="page_contact.html">Contact</a>
+    </nav>
+
+    <!-- Header -->
+    <header>
+      <h1>Scenario 3 • Blog</h1>
+      <p class="subtitle">
+        This page is used to test opening a blog post, adding a comment, posting it,
+        and entering an email to subscribe. The test script again starts with broken
+        locators, so the healing logic has to find the real elements.
+      </p>
+      <div class="chips">
+        <span class="chip">Read more</span>
+        <span class="chip">Comment box</span>
+        <span class="chip">Subscribe email</span>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <div class="layout">
+      <!-- Left: blog content and read more -->
+      <section class="card">
+        <span class="badge-step">Step 1 • Open the full post</span>
+        <h2>Latest blog post</h2>
+        <p>
+          Auto-healing in UI tests aims to keep automation stable even when the
+          application under test changes between releases. Instead of immediately
+          failing when a locator breaks, the test framework tries to repair it.
+        </p>
+        <p class="muted" style="margin-top: 6px;">
+          The script first uses a wrong ID. Auto-healing must still find and click
+          this “Read more” button.
+        </p>
+
+        <button id="read_more_link">Read more</button>
+        <p class="muted" style="margin-top: 6px;">
+          Target locator: <code>id="read_more_link"</code>
+        </p>
+      </section>
+
+      <!-- Right: comment + subscribe -->
+      <section class="card">
+        <span class="badge-step">Step 2 • Comment & subscribe</span>
+        <h2>Join the discussion</h2>
+        <p class="muted">
+          The test fills in a comment, posts it, and then enters an email to
+          subscribe to the blog.
+        </p>
+
+        <div style="margin-top: 10px;">
+          <label for="comment_box">Comment</label>
+          <textarea
+            id="comment_box"
+            placeholder="Write a short comment, e.g. 'Nice post!'"
+          ></textarea>
+
+          <button id="post_comment_btn">Post comment</button>
+          <p class="muted" style="margin-top: 6px;">
+            Target locators: <code>id="comment_box"</code> and
+            <code>id="post_comment_btn"</code>.
+          </p>
+        </div>
+
+        <hr>
+
+        <h2>Subscribe to the blog</h2>
+        <label for="subscribe_email">Email address</label>
+        <input
+          id="subscribe_emailll"
+          type="email"
+          placeholder="your.email@example.com"
+        >
+        <p class="muted" style="margin-top: 6px;">
+          Target locator: <code>id="subscribe_email"</code>. The test uses a broken
+          ID first; the healing logic must find this input.
+        </p>
+      </section>
+    </div>
+
+    <!-- Explanation -->
+    <section class="cards" style="margin-top: 18px;">
+      <span class="badgestep">What the test checks here</span>
+      <h2>Healing goals on this page</h2>
+      <ul>
+        <li>Can the “Read more” button be healed when its locator changes?</li>
+        <li>Can the comment textarea and post button still be found after locator updates?</li>
+        <li>Can the email subscription input be recovered from a broken locator?</li>
+      </ul>
+    </section>
+  </div>
+</body>
+</html>

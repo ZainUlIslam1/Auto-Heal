@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Auto-Heal Demo • Login & Profile</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    /* ===== Global reset ===== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ===== Background & layout ===== */
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #1f2937 0, #020617 35%, #020617 100%);
+      color: #e5e7eb;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 1100px;
+      padding: 24px 16px 40px;
+    }
+
+    /* ===== Top nav with glass effect ===== */
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      margin-bottom: 22px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      backdrop-filter: blur(14px);
+      box-shadow:
+        0 16px 40px rgba(15, 23, 42, 0.65),
+        0 0 0 1px rgba(15, 23, 42, 0.9);
+    }
+
+    .nav a {
+      text-decoration: none;
+      font-size: 0.85rem;
+      color: #cbd5f5;
+      padding: 6px 14px;
+      border-radius: 999px;
+      position: relative;
+      transition: all 0.18s ease-out;
+    }
+
+    .nav a.active {
+      background: linear-gradient(135deg, #4f46e5, #22c55e);
+      color: #f9fafb;
+      box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.4);
+    }
+
+    .nav a:not(.active):hover {
+      background: rgba(148, 163, 184, 0.12);
+      transform: translateY(-1px);
+    }
+
+    /* ===== Header text ===== */
+    header h1 {
+      font-size: 2rem;
+      letter-spacing: 0.03em;
+      margin-bottom: 4px;
+    }
+
+    .subtitle {
+      color: #9ca3af;
+      font-size: 0.95rem;
+      max-width: 620px;
+      margin-bottom: 16px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .chip {
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: #e5e7eb;
+    }
+
+    /* ===== Main layout ===== */
+    .layout {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 18px;
+    }
+
+    @media (max-width: 880px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ===== Neumorphic / 3D-ish cards ===== */
+    .card {
+      position: relative;
+      background: radial-gradient(circle at top left, #0b1220 0, #020617 55%);
+      border-radius: 18px;
+      padding: 18px 20px 20px;
+      box-shadow:
+        12px 18px 40px rgba(0, 0, 0, 0.75),
+        -6px -4px 18px rgba(148, 163, 184, 0.06);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      overflow: hidden;
+      transform: translateZ(0);
+      transition: transform 0.18s ease-out, box-shadow 0.18s ease-out;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -60%;
+      background: radial-gradient(circle at top left, rgba(96, 165, 250, 0.19), transparent 55%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease-out;
+    }
+
+    .card:hover {
+      transform: translateY(-2px) scale(1.01);
+      box-shadow:
+        16px 22px 50px rgba(0, 0, 0, 0.9),
+        -4px -4px 18px rgba(148, 163, 184, 0.08);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card h2 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    .badge-step {
+      display: inline-block;
+      font-size: 0.75rem;
+      padding: 2px 9px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: #7dd3fc;
+      margin-bottom: 6px;
+    }
+
+    .muted {
+      color: #9ca3af;
+      font-size: 0.85rem;
+      margin-top: 4px;
+    }
+
+    /* ===== Form controls ===== */
+    label {
+      display: block;
+      font-size: 0.85rem;
+      margin-bottom: 4px;
+      color: #e5e7eb;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      background: rgba(15, 23, 42, 0.85);
+      color: #e5e7eb;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+      outline: none;
+      transition: border-color 0.15s ease-out, box-shadow 0.15s ease-out, background 0.15s ease-out;
+    }
+
+    input::placeholder {
+      color: #6b7280;
+    }
+
+    input:focus {
+      border-color: #4f46e5;
+      box-shadow: 0 0 0 1px rgba(129, 140, 248, 0.7);
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    /* ===== Buttons with depth ===== */
+    button {
+      border: none;
+      border-radius: 999px;
+      padding: 8px 18px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+      font-weight: 500;
+      position: relative;
+      overflow: hidden;
+      transform: translateY(0);
+      transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, filter 0.12s ease-out;
+    }
+
+    button::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.28), transparent 55%);
+      opacity: 0;
+      transition: opacity 0.15s ease-out;
+    }
+
+    button:hover::after {
+      opacity: 1;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 25px rgba(15, 23, 42, 0.9);
+      filter: brightness(1.04);
+    }
+
+    button:active {
+      transform: translateY(0);
+      box-shadow: none;
+      filter: brightness(0.96);
+    }
+
+    #login-btn-primary {
+      background: linear-gradient(135deg, #4f46e5, #6366f1);
+      color: #f9fafb;
+      margin-right: 8px;
+    }
+
+    #delete-alice-btn-primary {
+      background: linear-gradient(135deg, #ef4444, #b91c1c);
+      color: #fef2f2;
+      margin-top: 10px;
+    }
+
+    #btn_save_profile {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: #ecfdf5;
+      margin-top: 10px;
+    }
+
+    .link-row {
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+    }
+
+    a.logout-link {
+      color: #f97373;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(127, 29, 29, 0.25);
+      border: 1px solid rgba(239, 68, 68, 0.6);
+      transition: background 0.15s ease-out, transform 0.12s ease-out;
+    }
+
+    a.logout-link:hover {
+      background: rgba(248, 113, 113, 0.3);
+      transform: translateY(-1px);
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid rgba(55, 65, 81, 0.7);
+      margin: 14px 0;
+    }
+
+    ul {
+      padding-left: 18px;
+      font-size: 0.9rem;
+      color: #d1d5db;
+    }
+
+    li {
+      margin-bottom: 4px;
+    }
+
+    code {
+      font-family: "Cascadia Code", Consolas, monospace;
+      font-size: 0.8rem;
+      background: rgba(15, 23, 42, 0.9);
+      padding: 1px 5px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: #e5e7eb;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- Nav -->
+    <nav class="nav">
+      <a href="index.html" class="active">Login & Profile</a>
+      <a href="page_ecommerce.html">E-commerce</a>
+      <a href="page_blog.html">Blog</a>
+      <a href="page_dashboard.html">Dashboard</a>
+      <a href="page_contact.html">Contact</a>
+    </nav>
+
+    <!-- Header -->
+    <header>
+      <h1>Scenario 1 • Login & Profile</h1>
+      <p class="subtitle">
+        This page is used to test how auto-healing recovers when the login and profile
+        locators in the test script are broken. The workflow is: login ➜ delete Alice ➜ update email.
+      </p>
+      <div class="chips">
+        <span class="chip">Broken IDs</span>
+        <span class="chip">Healed locators</span>
+        <span class="chip">Selenium & AI</span>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <div class="layout">
+      <!-- Left card: login and actions -->
+      <section class="card">
+        <span class="badge-step">Step 1 • Login as Alice</span>
+        <h2>Login area</h2>
+        <p class="muted">
+          The script will first use a wrong ID. The auto-healing driver must still
+          find and click this real login button.
+        </p>
+
+        <div style="margin-top: 10px;">
+          <label for="username">Username</label>
+          <input id="username" type="text" value="alice@example.com">
+
+          <label for="password">Password</label>
+          <input id="password" type="password" value="password123">
+        </div>
+
+        <button id="login-btn-primary" class="btn-primary">Login</button>
+        <p class="muted">Target locator: <code>id="login-btn-primary"</code></p>
+
+        <hr>
+
+        <span class="badge-step">Step 2 • Dangerous action</span>
+        <h2>Delete Alice account</h2>
+        <p class="muted">
+          After login, the test clicks a “Delete Alice” button using an outdated ID.
+          Healing should find the real button below.
+        </p>
+
+        <button id="deletelice-btn-primary">Delete Alice account</button>
+        <p class="muted">Target locator: <code>id="delete-alice-btn-primary"</code></p>
+      </section>
+
+      <!-- Right card: profile update -->
+      <section class="card">
+        <span class="badgestep">Step 3 • Update profile</span>
+        <h2>Profile email</h2>
+        <p class="muted">
+          The test types a new email address into this field and then saves the profile.
+          Again, the script starts with a broken locator, so healing must fix it.
+        </p>
+
+        <div style="margin-top: 10px;">
+          <label for="profile_email">Email address</label>
+          <input
+            id="profiles_email"
+            name="email"
+            type="email"
+            placeholder="you@example.com"
+          >
+          <button id="btn_saveprofile">Save profile</button>
+        </div>
+
+        <div class="link-row">
+          <span class="muted">Expected result: profile saved successfully.</span>
+          <a href="#" class="logout-link">Logout</a>
+        </div>
+
+        <!-- Hidden fallback link to make sure //a[text()='Logout'] always finds something -->
+        <a href="#" style="display:none;">Logout</a>
+      </section>
+    </div>
+
+    <!-- Explanation card -->
+    <section class="cards" style="margin-top: 18px;">
+      <span class="badgestep">What the test checks here</span>
+      <h2>Healing goals on this page</h2>
+      <ul>
+        <li>Can the broken login locator be healed using stored attributes?</li>
+        <li>Can the “Delete Alice” button be found when its ID changes?</li>
+        <li>Can the profile email field and save button be recovered through healing?</li>
+        <li>Does the test still behave correctly (not just “no errors”)?</li>
+      </ul>
+    </section>
+  </div>
+</body>
+</html>

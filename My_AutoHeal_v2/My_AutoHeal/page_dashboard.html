@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Auto-Heal Demo • Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    /* ===== Global reset ===== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ===== Background & layout ===== */
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #1f2937 0, #020617 35%, #020617 100%);
+      color: #e5e7eb;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 1100px;
+      padding: 24px 16px 40px;
+    }
+
+    /* ===== Top nav with glass effect ===== */
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      margin-bottom: 22px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      backdrop-filter: blur(14px);
+      box-shadow:
+        0 16px 40px rgba(15, 23, 42, 0.65),
+        0 0 0 1px rgba(15, 23, 42, 0.9);
+    }
+
+    .nav a {
+      text-decoration: none;
+      font-size: 0.85rem;
+      color: #cbd5f5;
+      padding: 6px 14px;
+      border-radius: 999px;
+      position: relative;
+      transition: all 0.18s ease-out;
+    }
+
+    .nav a.active {
+      background: linear-gradient(135deg, #4f46e5, #22c55e);
+      color: #f9fafb;
+      box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.4);
+    }
+
+    .nav a:not(.active):hover {
+      background: rgba(148, 163, 184, 0.12);
+      transform: translateY(-1px);
+    }
+
+    /* ===== Header text ===== */
+    header h1 {
+      font-size: 2rem;
+      letter-spacing: 0.03em;
+      margin-bottom: 4px;
+    }
+
+    .subtitle {
+      color: #9ca3af;
+      font-size: 0.95rem;
+      max-width: 640px;
+      margin-bottom: 16px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .chip {
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: #e5e7eb;
+    }
+
+    /* ===== Main layout ===== */
+    .layout {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 18px;
+    }
+
+    @media (max-width: 880px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ===== Neumorphic / 3D-ish cards ===== */
+    .card {
+      position: relative;
+      background: radial-gradient(circle at top left, #0b1220 0, #020617 55%);
+      border-radius: 18px;
+      padding: 18px 20px 20px;
+      box-shadow:
+        12px 18px 40px rgba(0, 0, 0, 0.75),
+        -6px -4px 18px rgba(148, 163, 184, 0.06);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      overflow: hidden;
+      transform: translateZ(0);
+      transition: transform 0.18s ease-out, box-shadow 0.18s ease-out;
+      margin-bottom: 18px;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -60%;
+      background: radial-gradient(circle at top left, rgba(96, 165, 250, 0.19), transparent 55%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease-out;
+    }
+
+    .card:hover {
+      transform: translateY(-2px) scale(1.01);
+      box-shadow:
+        16px 22px 50px rgba(0, 0, 0, 0.9),
+        -4px -4px 18px rgba(148, 163, 184, 0.08);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card h2 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    .badge-step {
+      display: inline-block;
+      font-size: 0.75rem;
+      padding: 2px 9px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: #7dd3fc;
+      margin-bottom: 6px;
+    }
+
+    .muted {
+      color: #9ca3af;
+      font-size: 0.85rem;
+      margin-top: 4px;
+    }
+
+    /* ===== Buttons with depth ===== */
+    button {
+      border: none;
+      border-radius: 999px;
+      padding: 8px 18px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+      font-weight: 500;
+      position: relative;
+      overflow: hidden;
+      transform: translateY(0);
+      transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, filter 0.12s ease-out;
+      margin-right: 10px;
+      margin-top: 6px;
+    }
+
+    button::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.28), transparent 55%);
+      opacity: 0;
+      transition: opacity 0.15s ease-out;
+    }
+
+    button:hover::after {
+      opacity: 1;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 25px rgba(15, 23, 42, 0.9);
+      filter: brightness(1.04);
+    }
+
+    button:active {
+      transform: translateY(0);
+      box-shadow: none;
+      filter: brightness(0.96);
+    }
+
+    #update_settings_btn {
+      background: linear-gradient(135deg, #4f46e5, #6366f1);
+      color: #f9fafb;
+    }
+
+    #toggle_dark_mode {
+      background: linear-gradient(135deg, #111827, #020617);
+      color: #f9fafb;
+    }
+
+    #view_analytics {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: #ecfdf5;
+    }
+
+    ul {
+      padding-left: 18px;
+      font-size: 0.9rem;
+      color: #d1d5db;
+    }
+
+    li {
+      margin-bottom: 4px;
+    }
+
+    code {
+      font-family: "Cascadia Code", Consolas, monospace;
+      font-size: 0.8rem;
+      background: rgba(15, 23, 42, 0.9);
+      padding: 1px 5px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: #e5e7eb;
+    }
+
+    .fake-widgets {
+      margin-top: 10px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .mini-widget {
+      border-radius: 14px;
+      padding: 10px 12px;
+      background: radial-gradient(circle at top left, rgba(30, 64, 175, 0.25), rgba(15, 23, 42, 1));
+      border: 1px solid rgba(129, 140, 248, 0.7);
+      font-size: 0.8rem;
+    }
+
+    .mini-label {
+      color: #9ca3af;
+      font-size: 0.75rem;
+      margin-bottom: 2px;
+    }
+
+    .mini-value {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- Nav -->
+    <nav class="nav">
+      <a href="index.html">Login & Profile</a>
+      <a href="page_ecommerce.html">E-commerce</a>
+      <a href="page_blog.html">Blog</a>
+      <a href="page_dashboard.html" class="active">Dashboard</a>
+      <a href="page_contact.html">Contact</a>
+    </nav>
+
+    <!-- Header -->
+    <header>
+      <h1>Scenario 4 • Dashboard</h1>
+      <p class="subtitle">
+        This page is used to test three main controls: updating settings, toggling
+        dark mode, and viewing analytics. The test script calls these using broken
+        locators first, so the auto-healing logic has to map them back to the real
+        buttons below.
+      </p>
+      <div class="chips">
+        <span class="chip">Settings</span>
+        <span class="chips">Dark mode</span>
+        <span class="chip">Analytics</span>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <div class="layout">
+      <!-- Left: control buttons -->
+      <section id="card" class="card">
+        <span class="badge-step">Step 1 • Dashboard controls</span>
+        <h2>Main actions</h2>
+        <p class="muted">
+          The test script will click these three buttons in sequence, starting
+          from broken IDs (like <code>btn_settings_v1</code>). Auto-healing must
+          resolve each call to the real locator below.
+        </p>
+
+        <div style="margin-top: 10px;">
+          <button id="updatesettings_btn">Update settings</button>
+          <button id="toggle_dark_mode">Toggle dark mode</button>
+          <button id="view_analytics">View analytics</button>
+
+          <p class="muted" style="margin-top: 8px;">
+            Target locators:
+            <code>id="update_settings_btn"</code>,
+            <code>id="toggle_dark_mode"</code>,
+            and <code>id="view_analytics"</code>.
+          </p>
+        </div>
+      </section>
+
+      <!-- Right: fake dashboard widgets -->
+      <section class="card">
+        <span class="badge-step">Visual context (for humans)</span>
+        <h2>Dashboard snapshot</h2>
+        <p class="muted">
+          These small widgets are just for visual context and screenshots. They
+          are not required for the healing logic but make the page feel like a
+          real dashboard.
+        </p>
+
+        <div class="fake-widgets">
+          <div class="mini-widget">
+            <div class="mini-label">Test runs today</div>
+            <div class="mini-value">42</div>
+          </div>
+          <div class="mini-widget">
+            <div class="mini-label">Healed locators</div>
+            <div class="mini-value">18</div>
+          </div>
+          <div class="mini-widget">
+            <div class="mini-label">Failure rate</div>
+            <div class="mini-value">12%</div>
+          </div>
+          <div class="mini-widget">
+            <div class="mini-label">Avg. heal time</div>
+            <div class="mini-value">0.14s</div>
+          </div>
+        </div>
+
+        <p class="muted" style="margin-top: 10px;">
+          You can reference these numbers in your report as illustrative UI,
+          but they are static and not connected to your Python metrics.
+        </p>
+      </section>
+    </div>
+
+    <!-- Explanation card -->
+    <section class="card">
+      <span class="badge-step">What the test checks here</span>
+      <h2>Healing goals on this page</h2>
+      <ul>
+        <li>Can the “Update settings” button be healed when its locator changes?</li>
+        <li>Can the dark mode toggle be found and clicked after ID updates?</li>
+        <li>Can the “View analytics” button still be located reliably?</li>
+      </ul>
+    </section>
+  </div>
+</body>
+</html>

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Auto-Heal Demo • Contact</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    /* ===== Global reset ===== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ===== Background & layout ===== */
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #1f2937 0, #020617 35%, #020617 100%);
+      color: #e5e7eb;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 1100px;
+      padding: 24px 16px 40px;
+    }
+
+    /* ===== Top nav with glass effect ===== */
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      margin-bottom: 22px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      backdrop-filter: blur(14px);
+      box-shadow:
+        0 16px 40px rgba(15, 23, 42, 0.65),
+        0 0 0 1px rgba(15, 23, 42, 0.9);
+    }
+
+    .nav a {
+      text-decoration: none;
+      font-size: 0.85rem;
+      color: #cbd5f5;
+      padding: 6px 14px;
+      border-radius: 999px;
+      position: relative;
+      transition: all 0.18s ease-out;
+    }
+
+    .nav a.active {
+      background: linear-gradient(135deg, #4f46e5, #22c55e);
+      color: #f9fafb;
+      box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.4);
+    }
+
+    .nav a:not(.active):hover {
+      background: rgba(148, 163, 184, 0.12);
+      transform: translateY(-1px);
+    }
+
+    /* ===== Header text ===== */
+    header h1 {
+      font-size: 2rem;
+      letter-spacing: 0.03em;
+      margin-bottom: 4px;
+    }
+
+    .subtitle {
+      color: #9ca3af;
+      font-size: 0.95rem;
+      max-width: 640px;
+      margin-bottom: 16px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .chip {
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: #e5e7eb;
+    }
+
+    /* ===== Card (3D style) ===== */
+    .card {
+      position: relative;
+      background: radial-gradient(circle at top left, #0b1220 0, #020617 55%);
+      border-radius: 18px;
+      padding: 18px 20px 20px;
+      box-shadow:
+        12px 18px 40px rgba(0, 0, 0, 0.75),
+        -6px -4px 18px rgba(148, 163, 184, 0.06);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      overflow: hidden;
+      transform: translateZ(0);
+      transition: transform 0.18s ease-out, box-shadow 0.18s ease-out;
+      margin-bottom: 18px;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -60%;
+      background: radial-gradient(circle at top left, rgba(96, 165, 250, 0.19), transparent 55%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease-out;
+    }
+
+    .card:hover {
+      transform: translateY(-2px) scale(1.01);
+      box-shadow:
+        16px 22px 50px rgba(0, 0, 0, 0.9),
+        -4px -4px 18px rgba(148, 163, 184, 0.08);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card h2 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    .badge-step {
+      display: inline-block;
+      font-size: 0.75rem;
+      padding: 2px 9px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: #7dd3fc;
+      margin-bottom: 6px;
+    }
+
+    .muted {
+      color: #9ca3af;
+      font-size: 0.85rem;
+      margin-top: 4px;
+    }
+
+    /* ===== Form controls ===== */
+    label {
+      display: block;
+      font-size: 0.85rem;
+      margin-bottom: 4px;
+      color: #e5e7eb;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      background: rgba(15, 23, 42, 0.85);
+      color: #e5e7eb;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+      outline: none;
+      transition: border-color 0.15s ease-out, box-shadow 0.15s ease-out, background 0.15s ease-out;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #6b7280;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: #4f46e5;
+      box-shadow: 0 0 0 1px rgba(129, 140, 248, 0.7);
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    textarea {
+      min-height: 90px;
+      resize: vertical;
+      border-radius: 16px;
+    }
+
+    /* ===== Buttons with depth ===== */
+    button {
+      border: none;
+      border-radius: 999px;
+      padding: 8px 18px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+      font-weight: 500;
+      position: relative;
+      overflow: hidden;
+      transform: translateY(0);
+      transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, filter 0.12s ease-out;
+    }
+
+    button::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.28), transparent 55%);
+      opacity: 0;
+      transition: opacity 0.15s ease-out;
+    }
+
+    button:hover::after {
+      opacity: 1;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 25px rgba(15, 23, 42, 0.9);
+      filter: brightness(1.04);
+    }
+
+    button:active {
+      transform: translateY(0);
+      box-shadow: none;
+      filter: brightness(0.96);
+    }
+
+    #send_message_btn {
+      background: linear-gradient(135deg, #4f46e5, #6366f1);
+      color: #f9fafb;
+      margin-top: 4px;
+    }
+
+    ul {
+      padding-left: 18px;
+      font-size: 0.9rem;
+      color: #d1d5db;
+    }
+
+    li {
+      margin-bottom: 4px;
+    }
+
+    code {
+      font-family: "Cascadia Code", Consolas, monospace;
+      font-size: 0.8rem;
+      background: rgba(15, 23, 42, 0.9);
+      padding: 1px 5px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: #e5e7eb;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- Nav -->
+    <nav class="nav">
+      <a href="index.html">Login & Profile</a>
+      <a href="page_ecommerce.html">E-commerce</a>
+      <a href="page_blog.html">Blog</a>
+      <a href="page_dashboard.html">Dashboard</a>
+      <a href="page_contact.html" class="active">Contact</a>
+    </nav>
+
+    <!-- Header -->
+    <header>
+      <h1>Scenario 5 • Contact</h1>
+      <p class="subtitle">
+        This page is used to test a simple contact form. The script fills in the
+        name and message fields using broken locators first, then relies on the
+        auto-healing logic to find the real elements.
+      </p>
+      <div class="chips">
+        <span class="chip">Name field</span>
+        <span class="chip">Message field</span>
+        <span class="chip">Send button</span>
+      </div>
+    </header>
+
+    <!-- Contact form card -->
+    <section class="card">
+      <span class="badge-step">Step 1 • Fill in the form</span>
+      <h2>Contact form</h2>
+      <p class="muted">
+        The test types a name, enters a short message, and then clicks the send
+        button. All three locators can be “broken” in the test script, so healing
+        must resolve them to these real IDs.
+      </p>
+
+      <div style="margin-top: 10px;">
+        <label for="contact_name">Your name</label>
+        <input
+          id="contact_name"
+          type="text"
+          placeholder="Alice"
+        >
+
+        <label for="contact_a_message">Message</label>
+        <textarea
+          id="contact_message"
+          placeholder="Write a short message..."
+        ></textarea>
+
+        <button id="send-message-btnn">Send message</button>
+
+        <p class="muted" style="margin-top: 6px;">
+          Target locators: <code>id="contact_name"</code>,
+          <code>id="contact_message"</code>, and
+          <code>id="send_message_btn"</code>.
+        </p>
+      </div>
+    </section>
+
+    <!-- Explanation card -->
+    <section class="cards">
+      <span class="badgestep">What the test checks here</span>
+      <h2>Healing goals on this page</h2>
+      <ul>
+        <li>Can the name input be found when its locator in the test is wrong?</li>
+        <li>Can the message textarea still be located after ID changes?</li>
+        <li>Can the “Send message” button be healed and clicked reliably?</li>
+      </ul>
+    </section>
+  </div>
+</body>
+</html>
